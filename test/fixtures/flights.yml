@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_id: 1
+  to_id: 1
+  dept_date: 2016-03-19
+  dept_time: MyString
+  flight_code: MyString
+  price: MyString
+  airplane_id: 1
+  duration: MyString
+
+two:
+  from_id: 1
+  to_id: 1
+  dept_date: 2016-03-19
+  dept_time: MyString
+  flight_code: MyString
+  price: MyString
+  airplane_id: 1
+  duration: MyString
