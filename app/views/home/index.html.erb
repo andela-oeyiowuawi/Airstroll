@@ -1,12 +1,19 @@
 <p> Welcome to Airstroll</p>
 
 <div class = "trip"> Where do you want to go? </div>
-<%= form_tag(controller: "flights", action: "search", method: "get", class: "search_form") %>
+<%= form_tag({controller: "home", action: "search"}, method: "get", class: "search_form") do %>
  <label>Flight Origin</label>
   <select name="flight[from]" id="from_airport">
   <% @airports.each do |airport|%>
-  <option value="<%= airport.id %>"><%= airport.name %></option>
+  <option value="<%= airport.id %>"><%= airport.name + ', '+ airport.city + ', '+ airport.country %></option>
   <% end %>
   </select>
+
+  <label>Flight Destination</label>
+   <select name="flight[to]" id="to_airport">
+   <% @airports.each do |airport|%>
+   <option value="<%= airport.id %>"><%= airport.name + ', '+ airport.city + ', '+ airport.country %></option>
+   <% end %>
+   </select>
 
 <% end %>
