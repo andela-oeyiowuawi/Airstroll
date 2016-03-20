@@ -36,5 +36,13 @@
            </div>
        </div>
 <% end %>
-<% @search.each do %>
-<div id = "search_result"
+<% if @search_result %>
+<% @search_result.each do |result| %>
+<div id = "search_result">
+  From <%= result.from.name +', '+result.from.city+", "+ result.from.country %>
+  To <%= result.to.name +', '+result.to.city+", "+ result.to.country %>
+  Departure Date <%= result.dept_date %> Departure Time <%= result.dept_time%>
+  Price <%= result.price %>
+</div>
+<% end %>
+<% end %>
