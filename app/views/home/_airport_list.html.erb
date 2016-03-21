@@ -1,0 +1,4 @@
+
+ <% @airports.each do |airport|%>
+ <option value="<%= airport.id %>"><%= airport.name + ', '+ airport.city + ', '+ airport.country %></option>
+<% end %> 
