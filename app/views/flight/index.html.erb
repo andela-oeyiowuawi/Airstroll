@@ -1,0 +1,35 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>From</th>
+      <th>To</th>
+      <th>Airline<th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+      <th>Price</th>
+      <th> </th>
+    </tr>
+  </thead>
+
+  <% @flights.each do |flight|%>
+  <% origin = flight.from.name %>
+  <% destination = flight.to.name %>
+  <% airline = flight.airplane.airline.name %>
+  <% departure_date = flight.dept_date %>
+  <% departure_time = flight.dept_time %>
+  <% price = flight.price %>
+  <% flight_datails = [origin,destination,airline,departure_date,departure_time,price] %>
+    <tr>
+    <td>
+      <%= radio_button_tag("user_choice","#{flight.id}")%>
+    </td>
+    <% counter = 0 %>
+    <% while counter < 6 %>
+    <td><%= flight_datails[counter] %> </td>
+    <% counter += 1 %>
+    <% end %>
+    <td><%= link_to "Book", booking_path, class: "btn btn-default" %></td>
+    </tr>
+  <% end %>
+</table
