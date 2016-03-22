@@ -1,4 +1,17 @@
-<table>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th> </th>
+      <th>From</th>
+      <th>To</th>
+      <th>Airline<th>
+      <th>Departure Date</th>
+      <th>Departure Time</th>
+      <th>Price</th>
+      <th> </th>
+    </tr>
+  </thead>
+
   <% @flights.each do |flight|%>
   <% origin = flight.from.name %>
   <% destination = flight.to.name %>
@@ -16,7 +29,7 @@
     <td><%= flight_datails[counter] %> </td>
     <% counter += 1 %>
     <% end %>
-     <%= link_to "Book", book_path(url_query), class: "col btn blue booker" %>
+    <td><%= link_to "Book", booking_path, class: "btn btn-default" %></td>
     </tr>
   <% end %>
 </table

@@ -15,7 +15,8 @@
       <td><%= result.to.name %> <%= result.from.city%> <%= result.from.country%></td>
       <td><%= result.dept_date %> Departure Time <%= result.dept_time%></td>
       <td><%= result.price %></td>
-      <td> <a class="btn btn-default" href="#" role="button">Book</a> </td>
+      <td><%= link_to "Book", booking_path, class: "btn btn-default" %></td>
+
     </tr>
     <% end %>
   </tbody>
