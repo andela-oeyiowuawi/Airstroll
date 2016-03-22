@@ -1,9 +1,25 @@
-<% @search_result.each do |result| %>
-
-<div id = "search_result">
-  From <%= result.from.name +', '+result.from.city+", "+ result.from.country %>
-  To <%= result.to.name +', '+result.to.city+", "+ result.to.country %>
-  Departure Date <%= result.dept_date %> Departure Time <%= result.dept_time%>
-  Price <%= result.price %>
-</div>
+<% if !@search_result.empty? %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>From</th>
+      <th>To</th>
+      <th>Departure Date</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_result.each do |result| %>
+    <tr>
+      <td><%= result.from.name%> <%= result.from.city%> <%= result.from.country%></td>
+      <td><%= result.to.name %> <%= result.from.city%> <%= result.from.country%></td>
+      <td><%= result.dept_date %> Departure Time <%= result.dept_time%></td>
+      <td><%= result.price %></td>
+      <td> <a class="btn btn-default" href="#" role="button">Book</a> </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<% else %>
+<div> There is no Flight that match that your search. You can search again or select all Flights</div>
 <% end %>

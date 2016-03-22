@@ -2,20 +2,21 @@
   <% @flights.each do |flight|%>
   <% origin = flight.from.name %>
   <% destination = flight.to.name %>
-  <% airline = flight.airplane.airline %>
+  <% airline = flight.airplane.airline.name %>
   <% departure_date = flight.dept_date %>
   <% departure_time = flight.dept_time %>
-  <% flight_datails = [origin,destination,airline,departure_date,departure_time]
   <% price = flight.price %>
+  <% flight_datails = [origin,destination,airline,departure_date,departure_time,price] %>
     <tr>
     <td>
       <%= radio_button_tag("user_choice","#{flight.id}")%>
     </td>
     <% counter = 0 %>
-    <% while counter < 5 %>
-    <td><% = flight_datails[counter] %></td>
+    <% while counter < 6 %>
+    <td><%= flight_datails[counter] %> </td>
     <% counter += 1 %>
     <% end %>
+     <%= link_to "Book", book_path(url_query), class: "col btn blue booker" %>
     </tr>
   <% end %>
 </table

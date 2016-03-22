@@ -4,7 +4,7 @@
   <% if flash[:notice] %>
   <%= flash[:notice] %>
   <% end %>
-  <%= form_tag({controller: "home", action: "search"}, method: "post", class: "search_form") do %>
+  <%= form_tag({controller: "home", action: "search"}, method: "post", class: "search_form", remote: true) do %>
   <label>Flight Origin</label>
   <select name="flight[from]" id="from_airport">
     <%= render 'home/airport_list'%>
@@ -32,3 +32,6 @@
     </div>
   </div>
   <% end %>
+  <div id = "flight-result">
+    
+  </div>
