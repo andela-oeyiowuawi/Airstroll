@@ -1,0 +1,36 @@
+
+<% if !@search_result.empty? %>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Airline</th>
+      <th>Departure Date and Time</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+      <% @search_result.each do |result| %>
+        <tr>
+          <% airline = result.airplane.airline.name %>
+
+          <td><%= radio_button_tag("book_choice","#{result.id}")%></td>
+          <td><%= result.from.name%> <%= result.from.city%> <%= result.from.country%></td>
+          <td><%= result.to.name %> <%= result.from.city%> <%= result.from.country%></td>
+          <td><%= airline %> </td>
+          <td><%= result.dept_date %> Departure Time <%= result.dept_time%></td>
+          <td><%= result.price %></td>
+          <%= hidden_field_tag(:id, result.id) %>
+          <% booking_details = "?id=#{result.id}&passenger= #{params[:flight][:no_of_passenger]}" %>
+          <td><%= link_to "Book", booking_path + booking_details, class: "btn btn-default" %></td>
+        </tr>
+      <% end %>
+  </tbody>
+</table>
+<% else %>
+<div> There is no Flight that match that your search. You can search again or select all Flights</div>
+<% end %>
