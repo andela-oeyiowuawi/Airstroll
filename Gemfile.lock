@@ -188,6 +188,7 @@ DEPENDENCIES
   jquery-rails
   omniauth-facebook
   omniauth-google-oauth2
+  pry
   pry-rails
   puma
   rails (= 4.2.2)

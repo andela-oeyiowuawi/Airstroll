@@ -1,14 +1,18 @@
 class FlightController < ApplicationController
-
+  before_action :validate_airport, only: :search
   def index
-    @flights = Flight.includes(:from, :to).order(price: :asc)
+    @airports = Airport.all
   end
   def search
-    @search_result = Flight.where("from_id = ? AND to_id = ? AND dept_date = ? ",
-                flight_details[:from],flight_details[:to],flight_details[:date])
-    respond_to do |format|
+    @search_result = Flight.search_flight(flight_details[:from],
+                        flight_details[:to],flight_details[:date])
+  end
 
-      format.js { render :js }
+  def validate_airport
+    if flight_details[:from] == flight_details[:to]
+      redirect_to root_url,
+       notice: "Origin Airport and Departure Airport can't be the same"
+       binding.pry
     end
   end
 
