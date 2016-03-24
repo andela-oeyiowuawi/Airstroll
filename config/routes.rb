@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   root 'flight#index'
   post 'flight/search' => 'flight#search'
   get  'flight/all' => 'flight#all'
+  get 'flight/show' => 'flight#show'
   resource :booking
+  #resource :flight
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

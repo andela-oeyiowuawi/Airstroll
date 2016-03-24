@@ -11,12 +11,10 @@ class FlightController < ApplicationController
 
   end
 
-  # def validate_airport
-  #   if flight_details[:from] == flight_details[:to]
-  #     redirect_to root_url,
-  #      notice: "Origin Airport and Departure Airport can't be the same"
-  #   end
-  # end
+  def show
+    @flight = Flight.find(params[:id])
+    @number_of_passengers = params[:passenger]
+  end
 
   private
   def flight_details

@@ -1,0 +1,13 @@
+
+<div class="jumbotron">
+  <div class="container">
+    <h1><%= @flight.airplane.airline.name%></h1>
+    <p><strong>Departure Airport: </strong><%= @flight.from.name%></p>
+    <p><strong>Arrival Airport: </strong><%= @flight.to.name%></p>
+    <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
+    <p><strong>Number of passengers: </strong><%= params[:passenger] %></p>
+    <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
+    <p><strong>Seats Available: </strong><%= @flight.airplane.seats%></p>
+    <p><a class="btn btn-primary btn-lg" href="#" role="button">Reserve Seat</a></p>
+  </div>
+</div>
