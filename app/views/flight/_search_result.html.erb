@@ -25,7 +25,7 @@
           <td><%= flight.dept_date %> Departure Time <%= flight.dept_time%></td>
           <td><%= flight.price %></td>
           <% booking_details = {:id =>flight.id,:passenger => params[:flight][:no_of_passenger]} %>
-          <td><%= link_to "Show", flight_show_path(booking_details), class: "btn btn-default" %></td>
+          <td><%= link_to "Select flight", new_booking_path(booking_details), class: "btn btn-default" %></td>
         </tr>
       <% end %>
   </tbody>
