@@ -24,9 +24,8 @@
           <td><%= airline %> </td>
           <td><%= result.dept_date %> Departure Time <%= result.dept_time%></td>
           <td><%= result.price %></td>
-          <%= hidden_field_tag(:id, result.id) %>
-          <% booking_details = "?id=#{result.id}&passenger= #{params[:flight][:no_of_passenger]}" %>
-          <td><%= link_to "Book", booking_path + booking_details, class: "btn btn-default" %></td>
+          <% booking_details = {:id =>result.id,:passenger => params[:flight][:no_of_passenger]} %>
+          <td><%= link_to "Book", new_booking_path(booking_details), class: "btn btn-default" %></td>
         </tr>
       <% end %>
   </tbody>
