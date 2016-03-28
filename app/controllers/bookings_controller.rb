@@ -4,11 +4,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    # @passenger = params[:passenger]
-    # #@passenger = 1 if @passenger.nil? || @passenger.empty?
-    # @flight = params[:id]
     @flight = Flight.find(params[:id])
-    @number_of_passengers = params[:passenger]
+    @number_of_passengers = params[:passenger].to_i
+    @booking = Booking.new
+    @booking.passengers.build if params[:passenger].blank?
+    @number_of_passengers.times { @booking.passengers.build }
+  end
+  private
+  def booking_params
+    params.require(:booking).permit(:no_of_passengers, :flight_id, passengers_attributes:[ :id, :name, :email])
   end
 
 end
