@@ -19,13 +19,13 @@
           <%= f.fields_for :passengers do | passenger | %>
           <h2> Passenger Details </h2>
           <%= passenger.label :name, "Name" %>
-          <%= f.text_field :name %>
+          <%= passenger.text_field :name %>
           <%= passenger.label :email, "Email" %>
-          <%= f.text_field :email %>
+          <%= passenger.text_field :email %>
           <% end %>
           <%= f.hidden_field :total_cost, { value: "#{total_price}" } %>
           <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
-          <%= f.hidden_field :no_of_passengers, { value: "#{params[:passenger]}" %>
+          <%= f.hidden_field :no_of_passengers, { value: "#{params[:passenger]}"} %>
           <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
         <% end %>
       </div>
