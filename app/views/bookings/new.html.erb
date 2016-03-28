@@ -25,6 +25,7 @@
           <% end %>
           <%= f.hidden_field :total_cost, { value: "#{total_price}" } %>
           <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
+          <%= f.hidden_field :confirmation_code, { value: "#{rand(1000+(params[:id].to_i))}" } %>
           <%= f.hidden_field :no_of_passengers, { value: "#{params[:passenger]}"} %>
           <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
         <% end %>
