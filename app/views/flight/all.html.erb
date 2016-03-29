@@ -29,7 +29,9 @@
     <td><%= flight_datails[counter] %> </td>
     <% counter += 1 %>
     <% end %>
-    <td><%= link_to "Book", booking_path, class: "btn btn-default" %></td>
+    <% booking_details = {:id =>flight.id} %>
+
+    <td><%= link_to "Book", new_booking_path(booking_details), class: "btn btn-default" %></td>
     </tr>
   <% end %>
 </table

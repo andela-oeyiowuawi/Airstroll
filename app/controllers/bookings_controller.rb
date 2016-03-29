@@ -1,6 +1,12 @@
 class BookingsController < ApplicationController
 
   def create
+    booking = Booking.new(booking_params)
+    if booking.save
+      
+    else
+      redirect_to new_booking_path, notice: "Booking failed. Please try again."
+    end
   end
 
   def new
@@ -12,7 +18,7 @@ class BookingsController < ApplicationController
   end
   private
   def booking_params
-    params.require(:booking).permit(:no_of_passengers, :confirmation_code, :flight_id, passengers_attributes:[ :id, :name, :email])
+    params.require(:booking).permit(:no_of_passenger, :confirmation_code, :flight_id, passengers_attributes: [:name, :email])
   end
 
 end

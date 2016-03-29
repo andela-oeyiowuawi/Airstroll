@@ -7,27 +7,26 @@
         <p><strong>Departure Airport: </strong><%= @flight.from.name%></p>
         <p><strong>Arrival Airport: </strong><%= @flight.to.name%></p>
         <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
-        <p><strong>Number of passengers: </strong><%= params[:passenger] %></p>
         <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
-        <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
-        <% total_price = @flight.price.to_i * params[:passenger].to_i %>
-        <p><strong>Total cost: </strong><%= total_price %></p>
+        <% cost = @flight.price %>
+        <p class="pass"><strong>Number of Passenger: </strong><%=params[:passenger]%></p>
+        <p><strong>Price:  </strong><%= cost %></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Reserve Seat</a></p>
       </div>
       <div class="col-lg-6">
+        <h2> Passenger Details </h2>
+
         <%= form_for @booking, url: {action: "create"} do |f| %>
-          <%= f.fields_for :passengers do | passenger | %>
-          <h2> Passenger Details </h2>
-          <%= passenger.label :name, "Name" %>
-          <%= passenger.text_field :name %>
-          <%= passenger.label :email, "Email" %>
-          <%= passenger.text_field :email %>
-          <% end %>
-          <%= f.hidden_field :total_cost, { value: "#{total_price}" } %>
           <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
           <%= f.hidden_field :confirmation_code, { value: "#{rand(1000+(params[:id].to_i))}" } %>
-          <%= f.hidden_field :no_of_passengers, { value: "#{params[:passenger]}"} %>
-          <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
+          <%= f.hidden_field :no_of_passenger, { value: "#{params[:passenger]}"} %>
+          <%= f.fields_for :passengers do | passenger | %>
+          <%= render 'passenger_fields', f: passenger %>
+          <% end %>
+          <div class="links">
+            <%= link_to_add_association content_tag(:span, 'Add Passenger', class: "add_passenger"), f, :passengers, :class => 'btn btn-primary add' %>
+            <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
+          </div>
         <% end %>
       </div>
     </div>
