@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   root 'flight#index'
   post 'flight/search' => 'flight#search'
   get  'flight/all' => 'flight#all'
-  resource :booking
+  get 'flight/show' => 'flight#show'
+  resources :bookings
+  #get 'booking_confirmed/:id', to: 'bookings#show', as: 'booking_confirmed'
+  #resource :flight
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

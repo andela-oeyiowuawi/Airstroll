@@ -11,13 +11,6 @@ class FlightController < ApplicationController
 
   end
 
-  # def validate_airport
-  #   if flight_details[:from] == flight_details[:to]
-  #     redirect_to root_url,
-  #      notice: "Origin Airport and Departure Airport can't be the same"
-  #   end
-  # end
-
   private
   def flight_details
     params.require(:flight).permit(:from, :to,:date)

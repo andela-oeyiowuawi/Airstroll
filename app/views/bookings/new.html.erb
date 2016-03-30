@@ -1,0 +1,34 @@
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1><%= @flight.airplane.airline.name%></h1>
+        <p><strong>Departure Airport: </strong><%= @flight.from.name%></p>
+        <p><strong>Arrival Airport: </strong><%= @flight.to.name%></p>
+        <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
+        <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
+        <% cost = @flight.price %>
+         <p class="pass"><strong>Number of Passenger:</strong><%=params[:passenger]%></p>
+        <p><strong>Price:</strong> <%= cost %></p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Reserve Seat</a></p>
+      </div>
+      <div class="col-lg-6">
+        <h2> Passenger Details </h2>
+
+        <%= form_for @booking, url: {action: "create"} do |f| %>
+          <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
+          <%= f.hidden_field :confirmation_code, { value: "#{rand(1000+(params[:id].to_i))}" } %>
+          <%= f.hidden_field :no_of_passenger, { value: "#{params[:passenger]}",class: "no_of_pass"} %>
+          <%= f.fields_for :passengers do | passenger | %>
+          <%= render 'passenger_fields', f: passenger %>
+          <% end %>
+          <div class="links">
+            <%= link_to_add_association content_tag(:span, 'Add Passenger', class: "add_passenger"), f, :passengers, :class => 'btn btn-primary add', onclick: "passenger_calc('add')" %>
+            <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
