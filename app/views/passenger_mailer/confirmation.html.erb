@@ -1,0 +1,18 @@
+Good day <%=@passenger.name %>,
+
+<p class="body-text">You have successful made a booking with Booking number <%= @booking.confirmation_code %> with  </p>
+
+<p><b>Here are your booking details</b></p>
+
+<b>Confirmation Code: </b><%= @booking.confirmation_code %><br/>
+<b>Airline: </b> <%= @booking.flight.airplane.airline.name %> <br/>
+<b>From: </b> <%= @booking.flight.from.name %><br/>
+<b>To: </b> <%= @booking.flight.to.name %><br/>
+<b>Cost:</b> <%= @booking.flight.price.to_i * @booking.no_of_passenger.to_i %><br/>
+
+<p> <b>Passenger Details</b> </p>
+
+<% @booking.passengers.each do |passenger| %>
+  <b>Name: </b> <%= passenger.name %></br>
+  <p> &nbsp; </p>
+<% end %>
