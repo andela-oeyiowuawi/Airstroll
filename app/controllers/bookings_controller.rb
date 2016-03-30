@@ -3,10 +3,15 @@ class BookingsController < ApplicationController
   def create
     booking = Booking.new(booking_params)
     if booking.save
-      
+      redirect_to booking_path(booking)
     else
       redirect_to new_booking_path, notice: "Booking failed. Please try again."
     end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
+    @flight = Flight.find(@booking.flight_id)
   end
 
   def new

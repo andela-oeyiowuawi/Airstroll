@@ -20,7 +20,7 @@
 
           <td><%= radio_button_tag("book_choice","#{flight.id}")%></td>
           <td><%= flight.from.name%> <%= flight.from.city%> <%= flight.from.country%></td>
-          <td><%= flight.to.name %> <%=flight.from.city%> <%= flight.from.country%></td>
+          <td><%= flight.to.name %> <%=flight.to.city%> <%= flight.to.country%></td>
           <td><%= airline %> </td>
           <td><%= flight.dept_date %> Departure Time <%= flight.dept_time%></td>
           <td><%= flight.price %></td>

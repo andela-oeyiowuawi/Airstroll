@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   post 'flight/search' => 'flight#search'
   get  'flight/all' => 'flight#all'
   get 'flight/show' => 'flight#show'
-  resource :booking
+  resources :bookings
+  #get 'booking_confirmed/:id', to: 'bookings#show', as: 'booking_confirmed'
   #resource :flight
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

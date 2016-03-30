@@ -1,0 +1,28 @@
+<div>
+<h2> Your Flight Has been successfully Booked.</h2>
+<p> Here are your Flight Details </p>
+
+  <div>
+        <p>Departure Airport</p><%= @flight.from.name %>
+        <p>Destination Airport</p><%=@flight.to.name %>
+        <p>Airline</p><%= @flight.airplane.airline.name%>
+        <p>Departure Date</p><%=@flight.dept_date %>
+        <p>Departure Time</p><%=@flight.dept_time %>
+        <p>Price per Passenger</p><%=@flight.price %>
+        <p>Number of Passengers</p><%=@booking.no_of_passenger %>
+        <p>Total Cost:</p><%= @flight.price.to_i * @booking.no_of_passenger.to_i %>
+        <p>Booking Confirmation Code:</p> <%= @booking.confirmation_code %>
+
+</div>
+
+<div class = "col-md-6">
+						<h3 class = "text-info"> <strong>Passengers Details</strong></h3>
+						<hr>
+						<% @booking.passengers.each do |passenger| %>
+						<p>Name: <%= passenger.name %> </p>
+						<p>Email: <%= passenger.email %></p>
+						<hr>
+						<% end %>
+					</div>
+
+</div>
