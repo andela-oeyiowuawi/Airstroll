@@ -31,6 +31,7 @@ class BookingsController < ApplicationController
   end
 
   def mail_sender(booking)
+    PassengerMailer.confirmation(session[:email]) if session[:user_id]
     passengers = booking.passengers
     passengers.each{ |passenger| PassengerMailer.confirmation(passenger).deliver_later}
   end
