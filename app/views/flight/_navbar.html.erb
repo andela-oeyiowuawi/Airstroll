@@ -14,28 +14,34 @@
         <ul class = "nav navbar-nav navbar-right">
 
             <li> <a href="flight/all"> All Flights</a></li>
-            <% if !current_user %>
-            <li><a class="modal-trigger" href="#modal1">Login</a></li>
+            <% if current_user.nil? %>
+             <li><a href="#" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
           </ul>
         <% else %>
+         <%= link_to "#{session[:name]}", "#", { class: "dropdown-button", :data => {:activates => "dropdown1"} } %>
         <ul id="dropdown1" class="dropdown-content">
-          <li><%= link_to "Past booking", # %></li>
-          <li><%= link_to "Manage booking", # %></li>
-          <li><%= link_to "Logout", # %></li>
+          <li><%= link_to "Past booking", user_profile_path %></li>
+          <li><%= link_to "Manage booking", "#" %></li>
+          <li><%= link_to "Logout", "#" %></li>
         </ul>
         <% end %>
       </div>
     </div>
   </nav>
 
-  <div id="modal1" class="modal">
-    <div class="modal-content row">
-      <p>&nbsp;</p>
-      <div class="col l2 offset-l1 s12">
-        <a href="/auth/google_oauth2" class="waves-effect waves-light btn red darken-2">Google</a>
-      </div>
-      <div class="col l2 offset-l3 s12">
-        <a href="/auth/facebook" class="waves-effect waves-light btn  blue darken-4">Facebook</a>
+  <div class="modal fade" id= "loginmodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Login</h4>
+          </div>
+          <div class="col l2 offset-l1 s12">
+            <a href="/auth/google_oauth2" class="waves-effect waves-light btn red darken-2">Google</a>
+          </div>
+          <div class="col l2 offset-l3 s12">
+            <a href="/auth/facebook" class="waves-effect waves-light btn  blue darken-4">Facebook</a>
+          </div>
+        </div>
       </div>
     </div>
-  </div>

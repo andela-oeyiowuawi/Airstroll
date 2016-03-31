@@ -9,6 +9,9 @@ class BookingsController < ApplicationController
       redirect_to new_booking_path, notice: "Booking failed. Please try again."
     end
   end
+  def index
+    @booking = Booking.where(user_id: session[:user_id])
+  end
 
   def show
     @booking = Booking.find(params[:id])
