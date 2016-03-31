@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
     @flight = Flight.find(params[:id])
     @number_of_passengers = params[:passenger].to_i
     @booking = Booking.new
-    @booking.passengers.build if params[:passenger].blank?
+    @number_of_passengers = 1 if params[:passenger].blank?
     @number_of_passengers.times { @booking.passengers.build }
   end
   private
