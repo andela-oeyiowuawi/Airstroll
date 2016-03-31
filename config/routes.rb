@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   root 'flight#index'
   post 'flight/search' => 'flight#search'
-  get  'flight/all' => 'flight#all'
+  get  'flight/all' => 'flight#all', as: 'flights'
   get 'flight/show' => 'flight#show'
   resources :bookings
   get '/auth/:provider/callback', to: 'sessions#create'

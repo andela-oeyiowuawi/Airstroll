@@ -13,7 +13,7 @@
     <div class= "collapse navbar-collapse" id = "bs-example-navbar-collapse-1">
         <ul class = "nav navbar-nav navbar-right">
 
-            <li> <a href="flight/all"> All Flights</a></li>
+            <li> <a href="<%= flights_path %>"> All Flights</a></li>
             <% if current_user.nil? %>
              <li><a href="#" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
           </ul>
