@@ -9,7 +9,7 @@
         <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
         <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
         <% cost = @flight.price %>
-         <p class="pass"><strong>Number of Passenger:</strong><%=params[:passenger]%></p>
+         <p class="pass"><strong>Number of Passenger:</strong><%= @number_of_passengers%></p>
         <p><strong>Price:</strong> <%= cost %></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Reserve Seat</a></p>
       </div>
