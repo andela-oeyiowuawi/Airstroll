@@ -29,7 +29,7 @@ class BookingsController < ApplicationController
 
   def mail_sender(booking)
     passengers = booking.passengers
-    passengers.each{ |passenger| PassengerMailer.confirmation(passenger).deliver_now}
+    passengers.each{ |passenger| PassengerMailer.confirmation(passenger).deliver_later}
   end
 
 end
