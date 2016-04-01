@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
 
   def mail_sender(booking)
     if current_user
-      PassengerMailer.confirmation(session[:name],session[:email], booking).deliver_later
+      PassengerMailer.confirmation(current_user.name,current_user.email, booking).deliver_later
     else
       passengers = booking.passengers
       passengers.each{ |passenger| PassengerMailer.confirmation(passenger.name,passenger.email,booking).deliver_later }
