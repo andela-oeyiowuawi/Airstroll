@@ -18,6 +18,7 @@
              <li><a href="#" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
           </ul>
         <% else %>
+        <li> <%=image_tag(session[:image], class: "img-circle im")  %></li>
         <li>
          <%= link_to raw("<i class='fa fa-caret-down right'></i> #{session[:name]}"), "#", { class: "dropdown-button", :data => {:activates => "dropdown1",:toggle => "dropdown"} } %>
         <ul id="dropdown1" class="dropdown-menu">

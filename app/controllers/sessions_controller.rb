@@ -4,6 +4,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       session[:name] = user.name
       session[:email] = user.email
+      session[:image] = request.env['omniauth.auth'][:info][:image]
       redirect_to user_profile_path
   end
 

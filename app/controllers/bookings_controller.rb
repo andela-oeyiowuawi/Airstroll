@@ -22,7 +22,7 @@ class BookingsController < ApplicationController
     @flight = Flight.find(params[:id])
     @number_of_passengers = params[:passenger].to_i
     @booking = Booking.new
-    @number_of_passengers = 1 if params[:passenger].blank?
+    @number_of_passengers = 1 if params[:passenger].blank? || params[:passenger].empty?
     @number_of_passengers.times { @booking.passengers.build }
   end
   private
@@ -31,12 +31,13 @@ class BookingsController < ApplicationController
   end
 
   def mail_sender(booking)
-    # if current_user
-    #   PassengerMailer.confirmation(session[:name],session[:email], booking)
-    # else
+    if current_user
+      binding.pry
+      PassengerMailer.confirmation(session[:name],session[:email], booking).deliver_later
+    else
       passengers = booking.passengers
       passengers.each{ |passenger| PassengerMailer.confirmation(passenger.name,passenger.email,booking).deliver_later }
-    # end
+    end
 
   end
 
