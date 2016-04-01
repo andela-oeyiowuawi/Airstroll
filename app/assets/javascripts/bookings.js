@@ -9,6 +9,6 @@
     {
       pass = parseInt($(".pass").text().match(/\d+/)) - 1;
     }
-    $(".pass").text("Number of Passenger(s): " + pass);    
+    $(".pass").text("Number of Passenger(s): " + pass);
     $(".no_of_pass").val(pass);
   }

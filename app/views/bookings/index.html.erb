@@ -1,0 +1,20 @@
+<% if @bookings.empty? %>
+<h3> You have no Bookings yet </h3>
+<p> Click here to book a flight <%= link_to root_path %> </p>
+<% else %>
+
+<table>
+<thead>
+  <th> confirmation code </th>
+  <th> Departure airport </th>
+  <th>Destination Airport </th>
+</thead>
+<% @bookings.each do |booking| %>
+<tbody>
+  <tr> <%= booking.confirmation_code  %> </tr>
+  <tr> <%= booking.flight.from.name %> </tr>
+  <tr> <%= booking.flight.to.name %> </tr>
+</tbody>
+<% end %>
+</table>
+ <% end %>

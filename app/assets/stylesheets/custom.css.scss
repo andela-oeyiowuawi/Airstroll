@@ -1,2 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+$font-family-sans-serif:  'Poiret One', 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+input[type="date"]{
+  @extend .form-control;
+}
+
+
+#bg-container {
+  background-color: black;
+  padding: 50px;
+}
+#jumbid {
+
+  background-image: url(https://shepherds.edu/wp-content/uploads/airplane.jpg);
+  background-repeat: no-repeat;
+}
+#welcome {
+  color: white;
+}

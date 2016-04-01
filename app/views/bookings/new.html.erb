@@ -20,6 +20,7 @@
           <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
           <%= f.hidden_field :confirmation_code, { value: "#{rand(1000+(params[:id].to_i))}" } %>
           <%= f.hidden_field :no_of_passenger, { value: "#{@number_of_passengers}",class: "no_of_pass"} %>
+          <%= f.hidden_field :user_id, {value: "#{session[:user_id]}"} %>
           <%= f.fields_for :passengers do | passenger | %>
           <%= render 'passenger_fields', f: passenger %>
           <% end %>
