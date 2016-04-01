@@ -32,7 +32,6 @@ class BookingsController < ApplicationController
 
   def mail_sender(booking)
     if current_user
-      binding.pry
       PassengerMailer.confirmation(session[:name],session[:email], booking).deliver_later
     else
       passengers = booking.passengers
