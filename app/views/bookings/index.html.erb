@@ -1,6 +1,6 @@
 <% if @bookings.empty? %>
 <h3 class="text-center"> You have no Bookings yet </h3>
-<p class="text-center">> Click here to book a flight <%= link_to root_path %> </p>
+<p class="text-center">Click <%= link_to "here", root_path %> to book a flight </p>
 <% else %>
  <table class="table table-hover">
    <thead>
