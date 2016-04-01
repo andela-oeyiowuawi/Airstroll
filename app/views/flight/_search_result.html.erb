@@ -1,20 +1,20 @@
+  <div class="container">
+    <% if !@search_result.empty? %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Airline</th>
+          <th>Departure Date and Time</th>
+          <th>Price</th>
+        </tr>
+      </thead>
 
-<% if !@search_result.empty? %>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>From</th>
-      <th>To</th>
-      <th>Airline</th>
-      <th>Departure Date and Time</th>
-      <th>Price</th>
-    </tr>
-  </thead>
+      <tbody>
 
-  <tbody>
-
-      <% @search_result.each do |flight| %>
+        <% @search_result.each do |flight| %>
         <tr>
           <% airline = flight.airplane.airline.name %>
 
@@ -27,9 +27,10 @@
           <% booking_details = {:id =>flight.id,:passenger => params[:flight][:no_of_passenger]} %>
           <td><%= link_to "Select flight", new_booking_path(booking_details), class: "btn btn-default" %></td>
         </tr>
-      <% end %>
-  </tbody>
-</table>
-<% else %>
-<div class="text-center"> <h4> There is no Flight that match that your search. You can search again or select all Flights</h4></div>
-<% end %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <% else %>
+  <div class="text-center"> <h4> There is no Flight that match that your search. You can search again or select all Flights</h4></div>
+  <% end %>
