@@ -13,6 +13,9 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: session[:user_id])
   end
 
+  def edit
+  end
+
   def show
     @booking = Booking.find(params[:id])
     @flight = Flight.find(@booking.flight_id)

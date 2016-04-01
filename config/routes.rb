@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'userprofile' => 'bookings#index', as: 'user_profile'
   get "logout", to: "sessions#destroy", as: :logout
+  get "booking/edit" =>  "bookings#edit", as: 'edit'
   #get 'booking_confirmed/:id', to: 'bookings#show', as: 'booking_confirmed'
   #resource :flight
   # You can have the root of your site routed with "root"
