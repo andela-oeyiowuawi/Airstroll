@@ -1,16 +1,1 @@
-<section class="other_container row">
-  <div class="top_pad">
-    <%= render partial: "partials/flash"%>
-    <% flash.each do | name, msg | %>
-      <div class = "row">
-        <%= content_tag :h3, msg, class: [name, "col offset-l1 flasher"] %>
-      </div>
-    <% end %>
-    <% flash.clear %>
-    <%= form_tag(reservation_path, method: [:post], class: "col l9 offset-l1 s12 left") do %>
-      <%= label_tag :ref, "Enter Booking Confirmation Code" %>
-      <%= text_field_tag :bcode, nil, { class: "validate", type: "text", required: "required" } %>
-      <button class="btn waves-effect waves-light blue col l4" type="submit" name="search_flight">Find Reservation</button>
-    <% end %>
-  </div>
-</section>
+
