@@ -1,1 +1,22 @@
 
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1><%= @flight.airplane.airline.name%></h1>
+        <p><strong>Departure Airport: </strong><%= @flight.from.name%></p>
+        <p><strong>Arrival Airport: </strong><%= @flight.to.name%></p>
+        <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
+        <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
+        <% cost = @flight.price %>
+         <p class="pass"><strong>Number of Passenger:</strong><%= @number_of_passengers%></p>
+        <p><strong>Price:</strong> <%= cost %></p>
+      </div>
+      <div class="col-lg-6">
+        <h2> Passenger Details </h2>
+        <%= render 'partials/booking_form' %>
+
+      </div>
+    </div>
+  </div>
+</div>

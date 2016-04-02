@@ -14,14 +14,14 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = booking.find params[:id]
-    @flight = Flight.find(params[:flight_id])
-    @number_of_passengers = params[:no_of_passenger].to_i
-    @number_of_passengers.times{@booking.passengers.build}
+    @booking = Booking.find params[:id]
+    @flight = @booking.flight
+    @number_of_passengers = @booking.no_of_passenger.to_i
   end
 
   def update
-
+    @booking.update(booking_params)
+    
   end
 
   def reservation
