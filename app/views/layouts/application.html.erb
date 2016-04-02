@@ -9,6 +9,7 @@
 </head>
 <body>
 <%= render 'partials/navbar' %>
+<%= render partial: "partials/flash_message", flash: flash %>
     <%= yield %>
 </body>
 </html>

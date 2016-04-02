@@ -23,10 +23,20 @@ class BookingsController < ApplicationController
     @booking = Booking.find params[:id]
     @booking.update(booking_params)
     mail_sender(@booking, true)
-    redirect_to booking_path(@booking)
+    redirect_to user_profile_path, notice: "Booking successfully updated."
   end
 
   def reservation
+  end
+
+  def destroy
+    booking = Booking.find params[:id]
+    if booking.destroy
+      flash[:success] = "Booking cancelled successfully."
+    else
+      flash[:alert] = "Unable to cancel the booking, please contact the admin."
+    end
+    redirect_to user_profile_path
   end
 
   def find_reservation

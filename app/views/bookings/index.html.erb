@@ -25,7 +25,9 @@
        <td> <%= booking.flight.dept_date %> <%= booking.flight.dept_date %> </td>
        <% total_cost = booking.flight.price.to_i * booking.passengers.count.to_i %>
        <td> <%= total_cost %> </td>
-       <td></td>
+       <% if booking.flight.dept_date > Date.today %>
+        <td><%= link_to "cancel", cancel_path(id: booking.id), class: "btn btn-danger" %></td>
+        <% end %>
      </tr>
      <% end %>
    </tbody>
