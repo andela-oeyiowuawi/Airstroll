@@ -1,0 +1,7 @@
+<% if @reservation.nil? %>
+  <% flash[:alert] = "Invalid confirmation code" %>
+<% else %>
+  <%= @reservation.confirmation_code %>
+  <%= @reservation.flight.from.name %>
+  <%= @reservation.flight.to.name %>
+  <% end %>
