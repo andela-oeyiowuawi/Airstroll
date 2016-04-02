@@ -11,6 +11,7 @@
        <th>Airline</th>
        <th>Departure Date and Time</th>
        <th>Price</th>
+       <th></th>
      </tr>
    </thead>
 
@@ -24,6 +25,7 @@
        <td> <%= booking.flight.dept_date %> <%= booking.flight.dept_date %> </td>
        <% total_cost = booking.flight.price.to_i * booking.passengers.count.to_i %>
        <td> <%= total_cost %> </td>
+       <td></td>
      </tr>
      <% end %>
    </tbody>
