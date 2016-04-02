@@ -14,6 +14,10 @@
   <% end %>
   <div class="links">
     <%= link_to_add_association content_tag(:span, 'Add Passenger', class: "add_passenger"), f, :passengers, partial: "partials/passenger_fields", :class => 'btn btn-primary add', onclick: "passenger_calc('add')" %>
-    <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
+    <% if @booking.new_record? %>
+      <%= submit_tag( "Book Flight", {class: "btn btn-default"}) %>
+      <% else %>
+      <%= submit_tag( "Save", {class: "btn btn-default"}) %>
+      <% end %>
   </div>
 <% end %>
