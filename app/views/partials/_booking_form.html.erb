@@ -1,6 +1,12 @@
 <%= form_for @booking do |f| %>
+
+  <% if @booking.new_record? %>
   <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
   <%= f.hidden_field :confirmation_code, { value: "#{rand(1000+(params[:id].to_i))}" } %>
+  <% else %>
+  <%= f.hidden_field :flight_id, { value: "#{@flight.id}" } %>
+  <%= f.hidden_field :confirmation_code, { value: "#{@booking.confirmation_code}" } %>
+  <% end %>
   <%= f.hidden_field :no_of_passenger, { value: "#{@number_of_passengers}",class: "no_of_pass"} %>
   <%= f.hidden_field :user_id, {value: "#{session[:user_id]}"} %>
   <%= f.fields_for :passengers do | passenger | %>

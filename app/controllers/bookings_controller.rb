@@ -20,8 +20,10 @@ class BookingsController < ApplicationController
   end
 
   def update
+    @booking = Booking.find params[:id]
     @booking.update(booking_params)
-    
+    mail_sender(@booking, true)
+    redirect_to booking_path(@booking)
   end
 
   def reservation
@@ -48,14 +50,15 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:user_id, :no_of_passenger, :confirmation_code, :flight_id, passengers_attributes: [:name, :email])
   end
 
-  def mail_sender(booking)
-    if current_user
+  def mail_sender(booking, update = false)
+    if current_user && update
+      PassengerMailer.update_mail(current_user.name,current_user.email, booking).deliver_now
+    elsif current_user
       PassengerMailer.confirmation(current_user.name,current_user.email, booking).deliver_later
     else
       passengers = booking.passengers
       passengers.each{ |passenger| PassengerMailer.confirmation(passenger.name,passenger.email,booking).deliver_later }
     end
-
   end
 
 end
