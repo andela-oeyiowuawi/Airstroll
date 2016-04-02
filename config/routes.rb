@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'session/create'
+  # get 'session/create'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'userprofile' => 'bookings#index', as: 'user_profile'
   get "logout", to: "sessions#destroy", as: :logout
+  get "reservation" => "bookings#reservation"
+  post "findreservation" => "bookings#find_reservation", as: :find_reservation
+  get "cancel" => "bookings#destroy", as: :cancel
   #get 'booking_confirmed/:id', to: 'bookings#show', as: 'booking_confirmed'
   #resource :flight
   # You can have the root of your site routed with "root"

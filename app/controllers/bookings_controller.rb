@@ -13,6 +13,36 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: session[:user_id])
   end
 
+  def edit
+    @booking = Booking.find params[:id]
+    @flight = @booking.flight
+    @number_of_passengers = @booking.no_of_passenger.to_i
+  end
+
+  def update
+    @booking = Booking.find params[:id]
+    @booking.update(booking_params)
+    mail_sender(@booking, true)
+    redirect_to user_profile_path, notice: "Booking successfully updated."
+  end
+
+  def reservation
+  end
+
+  def destroy
+    booking = Booking.find params[:id]
+    if booking.destroy
+      flash[:success] = "Booking cancelled successfully."
+    else
+      flash[:alert] = "Unable to cancel the booking, please contact the admin."
+    end
+    redirect_to user_profile_path
+  end
+
+  def find_reservation
+      @reservation = Booking.find_booking(params[:bcode])
+  end
+
   def show
     @booking = Booking.find(params[:id])
     @flight = Flight.find(@booking.flight_id)
@@ -30,14 +60,15 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:user_id, :no_of_passenger, :confirmation_code, :flight_id, passengers_attributes: [:name, :email])
   end
 
-  def mail_sender(booking)
-    if current_user
+  def mail_sender(booking, update = false)
+    if current_user && update
+      PassengerMailer.update_mail(current_user.name,current_user.email, booking).deliver_now
+    elsif current_user
       PassengerMailer.confirmation(current_user.name,current_user.email, booking).deliver_later
     else
       passengers = booking.passengers
       passengers.each{ |passenger| PassengerMailer.confirmation(passenger.name,passenger.email,booking).deliver_later }
     end
-
   end
 
 end
