@@ -14,6 +14,18 @@ class BookingsController < ApplicationController
   end
 
   def edit
+
+  end
+
+  def update
+
+  end
+
+  def reservation
+  end
+
+  def find_reservation
+      @reservation = Booking.find_booking(params[:bcode])
   end
 
   def show
