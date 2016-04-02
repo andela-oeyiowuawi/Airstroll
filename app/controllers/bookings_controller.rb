@@ -1,14 +1,16 @@
 class BookingsController < ApplicationController
 
   def create
-    booking = Booking.new(booking_params)
-    if booking.save
+    if booking_params[:passengers_attributes].nil?
+      redirect_to :back,  notice: 'You must have at least one passenger'
+    else
+      booking = Booking.new(booking_params)
+      booking.save
       mail_sender(booking)
       redirect_to booking_path(booking)
-    else
-      redirect_to new_booking_path, notice: "Booking failed. Please try again."
     end
   end
+
   def index
     @bookings = Booking.where(user_id: session[:user_id])
   end
