@@ -9,15 +9,78 @@
         <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
         <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
         <% cost = @flight.price %>
-         <p class="pass"><strong>Number of Passenger:</strong><%= @number_of_passengers%></p>
+         <p><strong>Number of Passenger:</strong><%= @number_of_passengers%></p>
         <p><strong>Price:</strong> <%= cost %></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Reserve Seat</a></p>
       </div>
       <div class="col-lg-6">
         <h2> Passenger Details </h2>
         <%= render 'partials/booking_form' %>
-        
+
       </div>
     </div>
   </div>
+</div>
+
+<div id="intro">
+  <div class="container">
+    <div class="row centered">
+      <h1 class="text-left"><%=@flight.airplane.airline.name%></h1>
+
+      <div class="col">
+
+          <table class="table table-hover">
+
+ <tbody>
+    <tr>
+      <th>Departure Airport</th>
+      <td><%= @flight.from.name%></td>
+  </tr>
+
+  <tr>
+    <th>Arrival Airport</th>
+    <td><%= @flight.to.name%></td>
+  </tr>
+
+  <tr>
+    <th>Airplane Name</th>
+    <td><%= @flight.airplane.name %></td>
+  </tr>
+
+  <tr>
+    <th>Flight Code</th>
+    <td><%= @flight.flight_code%></td>
+  </tr>
+
+  <tr>
+    <th>Number of Passenger</th>
+    <td class="pass"><%= @number_of_passengers%></td>
+  </tr>
+
+  <tr>
+    <th>Price Per Passenger</th>
+    <td><%= @flight.price %></td>
+  </tr>
+ </tbody>
+</table>
+
+      </div>
+
+
+
+<br />
+
+
+
+<h1 class="text-left">Add Passengers</h1>
+<%= render 'partials/booking_form' %>
+
+
+
+<button class="btn btn-warning btn-lg pull-left" href="#" role="button"><span class="glyphicon glyphicon-plane"></span> Book Flight</button>
+
+<br /><br /><br />
+
+    </div> <!--/ .container -->
+</div><!--/ #introwrap -->
 </div>

@@ -1,7 +1,6 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th> </th>
       <th>From</th>
       <th>To</th>
       <th>Airline<th>
@@ -21,9 +20,6 @@
   <% price = flight.price %>
   <% flight_datails = [origin,destination,airline,departure_date,departure_time,price] %>
     <tr>
-    <td>
-      <%= radio_button_tag("user_choice","#{flight.id}")%>
-    </td>
     <% counter = 0 %>
     <% while counter < 6 %>
     <td><%= flight_datails[counter] %> </td>
@@ -31,7 +27,12 @@
     <% end %>
     <% booking_details = {:id =>flight.id} %>
 
-    <td><%= link_to "Book", new_booking_path(booking_details), class: "btn btn-default" %></td>
+    <!-- <td><%= link_to "Book", new_booking_path(booking_details), class: "btn btn-default" %></td> -->
+    <!-- <td><a class="btn btn-info" href="<%= new_booking_path(booking_details) %>"><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Book</a></td> -->
+    <td><%= link_to new_booking_path(booking_details), :class => 'btn btn-info' do %>
+    <span class="glyphicon glyphicon-plane" aria-hidden="true">Book</span>
+    <% end %>
+  </td>
     </tr>
   <% end %>
 </table

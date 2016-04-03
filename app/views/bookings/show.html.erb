@@ -1,28 +1,68 @@
-<div>
-<h2> Your Flight Has been successfully Booked.</h2>
-<p> Here are your Flight Details </p>
-
-  <div>
-        <p>Departure Airport</p><%= @flight.from.name %>
-        <p>Destination Airport</p><%=@flight.to.name %>
-        <p>Airline</p><%= @flight.airplane.airline.name%>
-        <p>Departure Date</p><%=@flight.dept_date %>
-        <p>Departure Time</p><%=@flight.dept_time %>
-        <p>Price per Passenger</p><%=@flight.price %>
-        <p>Number of Passengers</p><%=@booking.no_of_passenger %>
-        <p>Total Cost:</p><%= @flight.price.to_i * @booking.no_of_passenger.to_i %>
-        <p>Booking Confirmation Code:</p> <%= @booking.confirmation_code %>
 
 </div>
+<div id="intro">
+  <div class="container">
+    <div class="row centered">
+      <h1 class="text-center">Your Flight Has been successfully Booked.</h1>
+      <h3 class="text-center">Here are your Flight Details</h3>
 
-<div class = "col-md-6">
-						<h3 class = "text-info"> <strong>Passengers Details</strong></h3>
-						<hr>
-						<% @booking.passengers.each do |passenger| %>
-						<p>Name: <%= passenger.name %> </p>
-						<p>Email: <%= passenger.email %></p>
-						<hr>
-						<% end %>
-					</div>
+      <div class="col">
 
+          <table class="table table-hover">
+
+ <tbody>
+    <tr>
+      <th>Departure Airport</th>
+      <td><%= @flight.from.name%></td>
+  </tr>
+
+  <tr>
+    <th>Arrival Airport</th>
+    <td><%= @flight.to.name%></td>
+  </tr>
+
+  <tr>
+    <th>Airline Name</th>
+    <td><%=@flight.airplane.airline.name%></td>
+  </tr>
+  <tr>
+    <th>Airplane Name</th>
+    <td><%= @flight.airplane.name %></td>
+  </tr>
+  <tr>
+  <tr>
+    <th>Booking Confirmation Code</th>
+    <td><%= @booking.confirmation_code %></td>
+  </tr>
+  <tr>
+    <th>Departure Date</th>
+    <td><%=@flight.dept_date %></td>
+  </tr>
+  <tr>
+    <th>Departure Time</th>
+    <td><%=@flight.dept_time %></td>
+  </tr>
+
+  <tr>
+    <th>Number of Passenger</th>
+    <td><%= @booking.no_of_passenger %></td>
+  </tr>
+
+  <tr>
+    <th>Price Per Passenger</th>
+    <td><%= @flight.price %></td>
+  </tr>
+
+  <tr>
+    <th>Total cost </th>
+    <td><%= @flight.price.to_i * @booking.no_of_passenger.to_i %></td>
+  </tr>
+
+ </tbody>
+</table>
+
+      </div>
+
+    </div> <!--/ .container -->
+</div><!--/ #introwrap -->
 </div>

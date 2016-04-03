@@ -1,3 +1,4 @@
+
   <div class="container">
     <% if !@search_result.empty? %>
     <table class="table table-hover">
@@ -25,12 +26,16 @@
           <td><%= flight.dept_date %> Departure Time <%= flight.dept_time%></td>
           <td><%= flight.price %></td>
           <% booking_details = {:id =>flight.id,:passenger => params[:flight][:no_of_passenger]} %>
-          <td><%= link_to "Select flight", new_booking_path(booking_details), class: "btn btn-default" %></td>
+          <!-- <td><%= link_to "Book", new_booking_path(booking_details), class: "btn btn-info" %></td> -->
+          <td><a class="btn btn-info" href="<%= new_booking_path(booking_details) %>"><span class="glyphicon glyphicon-plane" aria-hidden="true"></span> Book</a></td>
+
         </tr>
         <% end %>
       </tbody>
     </table>
   </div>
   <% else %>
-  <div class="text-center"> <h4> There is no Flight that match that your search. You can search again or select all Flights</h4></div>
+  <div class="text-center">
+    There is no result that match your search. search again or see all flights
+  </div>
   <% end %>

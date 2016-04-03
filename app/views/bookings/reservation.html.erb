@@ -1,17 +1,14 @@
-<section class="other_container row">
+<!-- <section class="container"> -->
+  <div class="jumbotron">
+    <div class="container">
   <div class="top_pad">
-    <% flash.each do | name, msg | %>
-      <div class = "row">
-        <%= content_tag :h3, msg, class: [name, "col offset-l1 flasher"] %>
-      </div>
-    <% end %>
-    <% flash.clear %>
     <%= form_tag(find_reservation_path, method: [:post],remote: true) do %>
       <%= label_tag :ref, "Enter Booking Confirmation Code" %>
       <%= text_field_tag :bcode, nil, { class: "validate", type: "text", required: "required" } %>
       <button class="btn waves-effect waves-light blue col l4" type="submit" name="search_flight">Find Reservation</button>
     <% end %>
   </div>
-</section>
-
+</div>
 <div id="reserv-result"></div>
+</div>
+<!-- </section> -->
