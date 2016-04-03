@@ -1,0 +1,53 @@
+<!-- Fixed navbar -->
+  <div id="navigation" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><b>Airstroll</b></a>
+      </div>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="<%= root_path%>" class="smothscroll">Home</a></li>
+          <li><a href="<%= flights_path %>" class="smothscroll">All Flights</a></li>
+          </ul>
+          <ul class = "nav navbar-nav navbar-right">
+            <% if current_user.nil? %>
+             <li><a href="#" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
+             <% else %>
+             <li> <%=image_tag(session[:image], class: "img-circle im")  %></li>
+             <li>
+             <%= link_to raw("<i class='fa fa-caret-down right'></i> #{current_user.name}"), "#", { class: "dropdown-button", :data => {:activates => "dropdown1",:toggle => "dropdown"} } %>
+             <ul id="dropdown1" class="dropdown-menu">
+             <li><%= link_to "Past booking", user_profile_path %></li>
+             <li><%= link_to "Manage booking", reservation_path %></li>
+             <li><%= link_to "Logout", logout_path %></li>
+             </ul>
+             </li>
+             <% end %>
+
+          </ul>
+
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+
+  <div class="modal fade" id= "loginmodal" tabindex="-1" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Login</h4>
+          </div>
+          <div class="col l2 offset-l1 s12">
+            <a href="/auth/google_oauth2" class="waves-effect waves-light btn red darken-2">Google</a>
+          </div>
+          <div class="col l2 offset-l3 s12">
+            <a href="/auth/facebook" class="waves-effect waves-light btn  blue darken-4">Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
