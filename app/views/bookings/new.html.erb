@@ -9,7 +9,7 @@
         <p><strong>Airplane Name: </strong><%= @flight.airplane.name%></p>
         <p><strong>Flight Code: </strong><%= @flight.flight_code%></p>
         <% cost = @flight.price %>
-         <p class="pass"><strong>Number of Passenger:</strong><%= @number_of_passengers%></p>
+         <p><strong>Number of Passenger:</strong><%= @number_of_passengers%></p>
         <p><strong>Price:</strong> <%= cost %></p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">Reserve Seat</a></p>
       </div>
@@ -25,7 +25,7 @@
 <div id="intro">
   <div class="container">
     <div class="row centered">
-      <h1 class="text-left">Emirates</h1>
+      <h1 class="text-left"><%=@flight.airplane.airline.name%></h1>
 
       <div class="col">
 
@@ -34,43 +34,36 @@
  <tbody>
     <tr>
       <th>Departure Airport</th>
-      <td>Manchester Airport</td>
+      <td><%= @flight.from.name%></td>
   </tr>
 
   <tr>
     <th>Arrival Airport</th>
-    <td>Murtala Muhammed International Airport</td>
+    <td><%= @flight.to.name%></td>
   </tr>
 
   <tr>
     <th>Airplane Name</th>
-    <td>Diamond Star</td>
+    <td><%= @flight.airplane.name %></td>
   </tr>
 
   <tr>
     <th>Flight Code</th>
-    <td>AS67</td>
+    <td><%= @flight.flight_code%></td>
   </tr>
 
   <tr>
     <th>Number of Passenger</th>
-    <td>4</td>
+    <td class="pass"><%= @number_of_passengers%></td>
   </tr>
 
   <tr>
-    <th>Price</th>
-    <td>$17800.00</td>
+    <th>Price Per Passenger</th>
+    <td><%= @flight.price %></td>
   </tr>
  </tbody>
 </table>
 
-<div class="row">
-<div col-lg-4>
-<button class="btn btn-warning btn-lg pull-left" href="#" role="button">Reserve Seat</button>
-</div>
-<div class="col-lg-4">
-<button class="btn btn-info btn-lg pull-left" href="#" role="button"><span class="glyphicon glyphicon-print"></span> Print</button></div>
-</div>
       </div>
 
 
@@ -80,57 +73,8 @@
 
 
 <h1 class="text-left">Add Passengers</h1>
+<%= render 'partials/booking_form' %>
 
-<div class="container">
-  <div class="row clearfix">
-    <div class="col-md-12 table-responsive">
-    <table class="table table-bordered table-hover table-sortable" id="tab_logic">
-      <thead>
-        <tr >
-          <th class="text-center">
-            Name
-          </th>
-          <th class="text-center">
-            Email
-          </th>
-          <th class="text-center">
-            Phone
-          </th>
-            <th class="text-center">
-            Type
-          </th>
-              <th class="text-center" style="border-top: 1px solid #ffffff; border-right: 1px solid #ffffff;">
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr id='addr0' data-id="0" class="hidden">
-          <td data-name="name">
-              <input type="text" name='name0'  placeholder='Name' class="form-control"/>
-          </td>
-          <td data-name="mail">
-              <input type="text" name='mail0' placeholder='Email' class="form-control"/>
-          </td>
-          <td data-name="desc">
-            <input type="tel" name='desc0' class="form-control"/>
-          </td>
-            <td data-name="sel">
-              <select name="sel0">
-                    <option value"1">First Class</option>
-                      <option value"2">Business</option>
-                      <option value"3">Regular</option>
-              </select>
-          </td>
-                      <td data-name="del">
-                          <button nam"del0" class='btn btn-danger glyphicon glyphicon-remove row-remove'></button>
-                      </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-<a id="add_row" class="btn btn-info pull-right">Add Passenger</a>
-</div>
 
 
 <button class="btn btn-warning btn-lg pull-left" href="#" role="button"><span class="glyphicon glyphicon-plane"></span> Book Flight</button>
