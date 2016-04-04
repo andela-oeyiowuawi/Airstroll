@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
   end
 
   def index
-    # @bookings = Booking.where(user_id: session[:user_id])
     @bookings = current_user.bookings
   end
 
@@ -60,7 +59,8 @@ class BookingsController < ApplicationController
   end
   private
   def booking_params
-    params.require(:booking).permit(:user_id, :no_of_passenger, :confirmation_code, :flight_id, passengers_attributes: [:name, :email])
+    params.require(:booking).permit(:user_id, :no_of_passenger, :confirmation_code, :flight_id, passengers_attributes: [:id,
+      :name, :email])
   end
 
   def mail_sender(booking, update = false)
