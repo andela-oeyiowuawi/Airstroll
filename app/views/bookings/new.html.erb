@@ -1,5 +1,5 @@
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
@@ -21,66 +21,51 @@
     </div>
   </div>
 </div>
-
+ -->
 <div id="intro">
   <div class="container">
-    <div class="row centered">
+    <div class="row">
+      <div class="col-lg-7">
       <h1 class="text-left"><%=@flight.airplane.airline.name%></h1>
+        <table class="table table-hover">
+         <tbody>
+            <tr>
+              <th>Departure Airport</th>
+              <td class=""><%= @flight.from.name%></td>
+          </tr>
 
-      <div class="col">
+          <tr>
+            <th>Arrival Airport</th>
+            <td class=""><%= @flight.to.name%></td>
+          </tr>
 
-          <table class="table table-hover">
+          <tr>
+            <th>Airplane Name</th>
+            <td class=""><%= @flight.airplane.name %></td>
+          </tr>
 
- <tbody>
-    <tr>
-      <th>Departure Airport</th>
-      <td><%= @flight.from.name%></td>
-  </tr>
+          <tr>
+            <th>Flight Code</th>
+            <td class=""><%= @flight.flight_code%></td>
+          </tr>
 
-  <tr>
-    <th>Arrival Airport</th>
-    <td><%= @flight.to.name%></td>
-  </tr>
+          <tr>
+            <th>Number of Passenger</th>
+            <td class="pass "><%= @number_of_passengers%></td>
+          </tr>
 
-  <tr>
-    <th>Airplane Name</th>
-    <td><%= @flight.airplane.name %></td>
-  </tr>
-
-  <tr>
-    <th>Flight Code</th>
-    <td><%= @flight.flight_code%></td>
-  </tr>
-
-  <tr>
-    <th>Number of Passenger</th>
-    <td class="pass"><%= @number_of_passengers%></td>
-  </tr>
-
-  <tr>
-    <th>Price Per Passenger</th>
-    <td><%= @flight.price %></td>
-  </tr>
- </tbody>
-</table>
-
+          <tr>
+            <th>Price Per Passenger</th>
+            <td class=""><%= @flight.price %></td>
+          </tr>
+         </tbody>
+        </table>
       </div>
-
-
-
-<br />
-
-
-
-<h1 class="text-left">Add Passengers</h1>
-<%= render 'partials/booking_form' %>
-
-
-
-<button class="btn btn-warning btn-lg pull-left" href="#" role="button"><span class="glyphicon glyphicon-plane"></span> Book Flight</button>
-
-<br /><br /><br />
-
+      <div class="col-lg-5">
+        <h1 class="text-left">Add Passengers</h1>
+        <%= render 'partials/booking_form' %>
+      </div>
     </div> <!--/ .container -->
-</div><!--/ #introwrap -->
+  </div><!--/ #introwrap -->
+  <hr>
 </div>
