@@ -1,14 +1,14 @@
 <!-- <section class="container"> -->
   <div class="jumbotron">
     <div class="container">
-  <div class="top_pad">
-    <%= form_tag(find_reservation_path, method: [:post],remote: true) do %>
-      <%= label_tag :ref, "Enter Booking Confirmation Code" %>
-      <%= text_field_tag :bcode, nil, { class: "validate", type: "text", required: "required" } %>
-      <button class="btn waves-effect waves-light blue col l4" type="submit" name="search_flight">Find Reservation</button>
-    <% end %>
-  </div>
-</div>
-<div id="reserv-result"></div>
+      <div class="top_pad text-center">
+        <%= label_tag :ref, "Enter Booking Confirmation Code" %>
+        <%= form_tag(find_reservation_path, method: [:post], remote: true, class: "form-inline") do %>
+          <%= text_field_tag :bcode, nil, { class: "validate form-control", type: "text", required: "required" } %>
+          <button class="btn btn-primary waves-effect waves-light blue col l4" type="submit" name="search_flight">Find Reservation</button>
+        <% end %>
+      </div>
+    </div>
+    <div id="reserv-result"></div>
 </div>
 <!-- </section> -->
