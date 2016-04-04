@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
   end
 
   def index
-    # @bookings = Booking.where(user_id: session[:user_id])
     @bookings = current_user.bookings
   end
 
