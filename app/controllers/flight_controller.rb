@@ -5,7 +5,8 @@ class FlightController < ApplicationController
 
   def search
     @search_result = Flight.search_flight(flight_details[:from],
-                                          flight_details[:to], flight_details[:date]).available
+                                          flight_details[:to],
+                                          flight_details[:date]).available
   end
 
   def all
