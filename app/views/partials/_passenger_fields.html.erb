@@ -1,6 +1,6 @@
 <div class="nested-fields form-inline" id ="nested-fields">
-<%= f.text_field :name, class: "form-control", id: "name", placeholder: "Passenger Name", required: true %>
-<%= f.email_field :email, class: "form-control", id: "email", placeholder: "Passenger Email", required: true  %>
+<%= f.text_field :name, class: "form-control", id: "pass_name", placeholder: "Passenger Name", required: true %>
+<%= f.email_field :email, class: "form-control", id: "pass_email", placeholder: "Passenger Email", required: true, pattern: '[A-Za-z0-9_\-\.]+\@[A-Za-z0-9_\-\.]+\.[A-Za-z]{2,4}'  %>
 <%= link_to_remove_association "Remove", f, class: "btn btn-danger", onclick: "passenger_calc('subtract')" %>
 <hr>
 </div>

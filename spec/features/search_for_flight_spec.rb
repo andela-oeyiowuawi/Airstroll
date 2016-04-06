@@ -6,6 +6,7 @@ RSpec.feature "Flights", type: :feature do
     seed = Seeds.new
     seed.create_airports
     seed.create_flight
+    page.driver.browser.manage.window.maximize
   end
 
   scenario "home page" do
@@ -17,7 +18,6 @@ RSpec.feature "Flights", type: :feature do
       visit root_path
       select "Nnamdi Azikwe International Airport", from: "from_airport"
       select "Dubai International Airport", from: "to_airport"
-      select "1", from: "num_pass"
       click_button "fsearch"
       expect(page).to have_content("There is no result that match your search")
     end
@@ -25,10 +25,9 @@ RSpec.feature "Flights", type: :feature do
       visit root_path
       select "Murtala Muhammed International Airport", from: "from_airport"
       select "Nnamdi Azikwe International Airport", from: "to_airport"
-      select "2", from: "num_pass"
-      click_button "fsearch"
+      click_button "Search"
       within("tbody") do
-        expect(page).to have_selector("tr",count: 1)
+        expect(page).to have_selector("tr", count: 1)
       end
     end
     scenario "that hasn't departed" do
@@ -38,5 +37,4 @@ RSpec.feature "Flights", type: :feature do
       end
     end
   end
-
 end

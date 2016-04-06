@@ -52,12 +52,6 @@ class BookingsController < ApplicationController
   def new
     @flight = Flight.find(params[:id])
     @booking = Booking.new
-    if params[:passenger].blank? || params[:passenger].empty?
-      @number_of_passengers = 1
-    else
-      @number_of_passengers = params[:passenger].to_i
-    end
-    @number_of_passengers.times { @booking.passengers.build }
   end
 
   private
@@ -66,7 +60,7 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:user_id, :no_of_passenger,
                                     :confirmation_code, :flight_id,
                                     passengers_attributes: [:id, :name,
-                                                            :email])
+                                                            :email, :_destroy])
   end
 
   def mail_sender(booking, update = false)

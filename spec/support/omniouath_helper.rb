@@ -16,9 +16,9 @@ def mock_fb_oauth_response
     uid: "1234567",
     info: {
       email: "lecqon@airstroll.com",
-      name: "user mock",
-      first_name: "User",
-      last_name: "Mock",
+      name: "Jefe Lecqon",
+      first_name: "Jefe",
+      last_name: "Lecqon",
       image: "http://graph.facebook.com/1234567/picture?type=square",
       urls: { Facebook: "http://www.facebook.com/umock" },
       location: "Yaba Lagos",
@@ -32,9 +32,9 @@ def mock_fb_oauth_response
     extra: {
       raw_info: {
         id: "1234567",
-        name: "User mocks",
-        first_name: "User",
-        last_name: "Mocks",
+        name: "Jefe Lecqon",
+        first_name: "Jefe",
+        last_name: "Lecqon",
         link: "http://www.facebook.com/umock",
         username: "umocks",
         location: { id: "123456789", name: "Yaba Lagos" },
