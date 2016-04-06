@@ -19,7 +19,6 @@ gem "pry"
 gem "web-console", "~> 2.0", group: :development
 
 group :development, :test do
-  gem "byebug"
   gem "pry-rails"
   gem "simplecov"
   gem "capybara"
