@@ -22,8 +22,8 @@ def mock_fb_oauth_response
       image: "http://graph.facebook.com/1234567/picture?type=square",
       urls: { Facebook: "http://www.facebook.com/umock" },
       location: "Yaba Lagos",
-      :verified => true },
-        :credentials => {
+      verified: true },
+    credentials: {
       token: "SYQ3KB27P2...",
       expires_at: 3_451_747_305,
       expires: true

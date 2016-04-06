@@ -18,7 +18,6 @@ RSpec.feature "Flights", type: :feature, js: true do
       click_link "bkfl"
       expect(page).to have_content("Add Passengers")
 
-
       find(".add_passenger").click
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
