@@ -1,0 +1,7 @@
+dependencies:
+  post:
+    - gem install shoulda-matchers -v '3.1.1'
+
+machine:
+  ruby:
+    version: 2.2.1
