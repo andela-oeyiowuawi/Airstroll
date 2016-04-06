@@ -16,6 +16,7 @@ gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem "sdoc", "~> 0.4.0", group: :doc
 gem "pry"
+gem "web-console", "~> 2.0", group: :development
 
 group :development, :test do
   gem "byebug"
@@ -26,11 +27,13 @@ group :development, :test do
   gem "factory_girl_rails"
   gem "database_cleaner"
   gem "shoulda-matchers"
-  gem "web-console", "~> 2.0"
+  gem "coveralls"
+
   gem "sqlite3"
   gem "spring"
   gem "figaro"
   gem "rspec-rails"
+  gem "codeclimate-test-reporter", require: nil
 end
 group :production do
   gem "pg"

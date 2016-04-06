@@ -45,7 +45,7 @@
 
   <tr>
     <th>Number of Passenger</th>
-    <td><%= @booking.no_of_passenger %></td>
+    <td><%= @booking.passengers.count %></td>
   </tr>
 
   <tr>
@@ -55,7 +55,7 @@
 
   <tr>
     <th>Total cost </th>
-    <td><%= @flight.price.to_i * @booking.no_of_passenger.to_i %></td>
+    <td><%= @flight.price.to_i * @booking.passengers.count.to_i %></td>
   </tr>
 
  </tbody>
@@ -63,6 +63,6 @@
 
       </div>
 
-    </div> <!--/ .container -->
-</div><!--/ #introwrap -->
+    </div>
+</div>
 </div>
