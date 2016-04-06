@@ -2,7 +2,6 @@ require "rails_helper"
 RSpec.feature "Flights", type: :feature, js: true do
   before do
     Capybara.default_driver = :selenium
-    OmniAuth.config.test_mode = true
     seed = Seeds.new
     seed.create_airports
     seed.create_flight
@@ -16,7 +15,6 @@ RSpec.feature "Flights", type: :feature, js: true do
       select "Nnamdi Azikwe International Airport", from: "to_airport"
       click_button "fsearch"
       click_link "bkfl"
-      expect(page).to have_content("Add Passengers")
 
       find(".add_passenger").click
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
