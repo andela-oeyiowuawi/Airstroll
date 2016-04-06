@@ -2,7 +2,6 @@ require "rails_helper"
 RSpec.feature "Flights", type: :feature do
   before do
     Capybara.default_driver = :selenium
-    OmniAuth.config.test_mode = true
     seed = Seeds.new
     seed.create_airports
     seed.create_flight
