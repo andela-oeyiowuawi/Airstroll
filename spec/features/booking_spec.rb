@@ -42,7 +42,7 @@ RSpec.feature "Flights", type: :feature, js: true do
       click_on "Facebook"
       set_valid_omniauth
 
-      expect(page).to have_content("Signed in")
+      expect(page).to have_content("Example User")
       sleep 3
       visit "flight/all"
       first('#fl').click_link("Book")
@@ -51,7 +51,7 @@ RSpec.feature "Flights", type: :feature, js: true do
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
       click_button "Book Flight"
       expect(page).to have_content("Your Flight Has been successfully Booked.")
-      click_on "Jefe Lecqon"
+      click_on "Example User"
       click_on "Manage booking"
       fill_in "bcode", with: Booking.pluck(:confirmation_code).last
       click_button "Find Reservation"
