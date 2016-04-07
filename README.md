@@ -1,4 +1,5 @@
 #AIRSTROLL
+[![Coverage Status](https://coveralls.io/repos/github/andela-oeyiowuawi/Airstroll/badge.svg?branch=master)](https://coveralls.io/github/andela-oeyiowuawi/Airstroll?branch=master)
 
 Airstroll is a flight booking and management app that can be used to search for flights, book reservations and manage those reservations.
 
