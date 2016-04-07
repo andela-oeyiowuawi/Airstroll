@@ -45,7 +45,6 @@ RSpec.feature "Flights", type: :feature, js: true do
       expect(page).to have_content("Signed in")
       sleep 3
       visit "flight/all"
-      # binding.pry
       first('#fl').click_link("Book")
       find(".add_passenger").click
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
