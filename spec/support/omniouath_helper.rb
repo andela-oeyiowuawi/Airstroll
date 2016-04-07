@@ -15,7 +15,7 @@ def mock_fb_oauth_response
     provider: "facebook",
     uid: "1234567",
     info: {
-      email: "lecqon@airstroll.com",
+      email: "olalekan.eyiowuawi@andela.com",
       name: "Example User",
       first_name: "user",
       last_name: "example",
