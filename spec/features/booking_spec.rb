@@ -41,8 +41,9 @@ RSpec.feature "Flights", type: :feature, js: true do
       click_on "Login"
       click_on "Facebook"
       set_valid_omniauth
-      expect(page).to have_content("Jefe Lecqon")
 
+      expect(page).to have_content("Signed in")
+      sleep 3
       visit "flight/all"
       first('#fl').click_link("Book")
       find(".add_passenger").click
