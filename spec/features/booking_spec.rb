@@ -42,7 +42,7 @@ RSpec.feature "Flights", type: :feature, js: true do
       click_on "Facebook"
       set_valid_omniauth
 
-      expect(page).to have_content("Example User")
+      expect(page).to have_content("Signed")
       sleep 3
       visit "flight/all"
       first('#fl').click_link("Book")

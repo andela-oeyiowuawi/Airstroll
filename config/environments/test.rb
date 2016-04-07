@@ -14,6 +14,8 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :test
 
+  config.action_mailer.raise_delivery_errors = false
+
   config.active_support.test_order = :random
 
   config.active_support.deprecation = :stderr
