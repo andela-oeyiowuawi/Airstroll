@@ -35,6 +35,7 @@ RSpec.feature "Flights", type: :feature, js: true do
       expect(page).to have_content("You must have at least one passenger")
     end
   end
+  
   context "logged in User" do
     scenario "can book flight with valid passenger detail", js: true do
       visit root_path

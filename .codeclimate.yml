@@ -21,4 +21,4 @@ ratings:
 exclude_paths:
 - coverage/**/*
 - public/**/*
--db/**/*
+- db/**/*
