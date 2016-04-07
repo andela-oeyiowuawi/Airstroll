@@ -49,7 +49,6 @@ RSpec.feature "Flights", type: :feature, js: true do
       find(".add_passenger").click
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
-      binding.pry
       click_button "Book Flight"
       expect(page).to have_content("Your Flight Has been successfully Booked.")
       click_on "Example User"
