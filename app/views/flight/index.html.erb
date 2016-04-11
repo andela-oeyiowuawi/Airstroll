@@ -1,8 +1,8 @@
 <section id="home" name="home"></section>
-<div id="headerwrap">
+<div id="headerwrap" class="bg-class">
     <div class="container">
       <div class="row centered">
-        <div class="col-lg-12">
+        <!-- <div class="col-lg-12">
         <h1>Welcome To <b>Airstroll</b></h1>
         <h3>where do you want to go?</h3>
         <br>
@@ -51,11 +51,52 @@
                       <% end %>
                     </select>
                   </div>
-                </div>
+                </div> -->
+
+
+              <div class="tab-content">
+
+  <div class="form-cn form-tour" id="">
+      <h2>Where would you like to go?</h2>
+      <div class="form-search clearfix">
+          <div class="form-field field-select field-region">
+              <div class="select">
+                  <span>Region: <small>Wourldwide, africa..</small></span>
+                  <select>
+                      <option>Africa</option>
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-field field-select field-country">
+              <div class="select">
+                  <span>Country</span>
+                  <select>
+                      <option>Country</option>
+                      <option>Viet Nam</option>
+                      <option>Thai Lan</option>
+                  </select>
+              </div>
+          </div>
+          <div class="form-field field-date">
+              <input type="text" class="field-input calendar-input" placeholder="Departing">
+          </div>
+
+          <div class="form-submit">
+              <button type="submit" class="awe-btn awe-btn-medium awe-search">Search</button>
+          </div>
+      </div>
+  </div>
+  <!-- End Search Tour -->
+
+</div>
+
 
               </div>
 
-              <div class="row">
+              <!-- <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-12">
                   <div class="form-group">
                     <input id="departure_date" name="flight[date]" type="date" class="date-picker form-control"  data-toggle="tooltip" data-placement="top" title="Departure Date"/>
@@ -70,17 +111,17 @@
 
 
 
-            <% end %><!-- form end -->
+            <% end %> -->
             <br>
 
 
         </div>
-        <div class="col-lg-2">
+        <!-- <div class="col-lg-2">
           <br>
           <img class="hidden-xs hidden-sm hidden-md" src="images/arrow2.png">
           <h5>Filtered Search</h5>
           <p>Feel free to narrow down your search.</p>
-        </div>
+        </div> -->
       </div>
     </div> <!--/ .container -->
 </div><!--/ #headerwrap -->
