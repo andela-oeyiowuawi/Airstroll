@@ -1,130 +1,108 @@
 <section id="home" name="home"></section>
 <div id="headerwrap" class="bg-class">
     <div class="container">
-      <div class="row centered">
-        <!-- <div class="col-lg-12">
-        <h1>Welcome To <b>Airstroll</b></h1>
-        <h3>where do you want to go?</h3>
-        <br>
-        </div>
 
-        <div class="col-lg-2">
-          <h5>Easy Search</h5>
-          <p>Click the search button to begin your adventure.</p>
-          <img class="hidden-xs hidden-sm hidden-md" src="images/arrow1.png">
-        </div>
-        <div class="col-lg-8">
 
+
+
+      <div class="container searchBox">
         <%= form_tag({controller: "flight", action: "search"}, method: "post", role: "form", remote: true) do %>
-
-              <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-12">
+          <div class="row">
+              <h3 class="text-center">Where do you want to go?</h3>
+              <div class="col-sm-4">
                   <div class="form-group">
-                    <select name="flight[from]" id="from_airport" class="form-control">
+                    <label for="filter">Origin Airport</label>
+                    <select  name="flight[from]" id="from_airport" class="form-control">
                       <option>Flight Origin</option>
                       <%= render 'partials/airport_list'%>
                     </select>
-                  </div>
                 </div>
-
               </div>
-
-              <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-12">
+              <div class="col-sm-4">
                   <div class="form-group">
-                    <select name="flight[to]" id="to_airport" class="form-control">
+                    <label for="filter">Destination Airport</label>
+                    <select  name="flight[to]" id="to_airport" class="form-control">
                       <option>Flight Destination</option>
                       <%= render 'partials/airport_list'%>
                     </select>
-                  </div>
                 </div>
-
               </div>
 
-
-              <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-12">
-                  <div class="form-group">
-                    <select name="flight[no_of_passenger]" id="num_pass"  class="form-control" data-toggle="tooltip" data-placement="top" title="No. of Passengers">
-                      <% (1..10).to_a.each do |i|%>
-                      <option value="<%= i %>"><%= i %></option>
-                      <% end %>
-                    </select>
-                  </div>
-                </div> -->
-
-
-              <div class="tab-content">
-
-  <div class="form-cn form-tour" id="">
-      <h2>Where would you like to go?</h2>
-      <div class="form-search clearfix">
-          <div class="form-field field-select field-region">
-              <div class="select">
-                  <span>Region: <small>Wourldwide, africa..</small></span>
-                  <select>
-                      <option>Africa</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                  </select>
+               <div class="col-sm-2">
+                   <div class="form-group">
+                     <label for="filter">Departure Date</label>
+                          <input id="departure_date" name="flight[date]" type="date" class="date-picker form-control" title="Departure Date"/>
+                        </div>
               </div>
-          </div>
-          <div class="form-field field-select field-country">
-              <div class="select">
-                  <span>Country</span>
-                  <select>
-                      <option>Country</option>
-                      <option>Viet Nam</option>
-                      <option>Thai Lan</option>
-                  </select>
-              </div>
-          </div>
-          <div class="form-field field-date">
-              <input type="text" class="field-input calendar-input" placeholder="Departing">
-          </div>
-
-          <div class="form-submit">
-              <button type="submit" class="awe-btn awe-btn-medium awe-search">Search</button>
-          </div>
-      </div>
-  </div>
-  <!-- End Search Tour -->
-
-</div>
-
-
-              </div>
-
-              <!-- <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-12">
-                  <div class="form-group">
-                    <input id="departure_date" name="flight[date]" type="date" class="date-picker form-control"  data-toggle="tooltip" data-placement="top" title="Departure Date"/>
-                  </div>
-                </div>
-
-              </div>
-
-              <%= button_tag(type: "submit", class: "btn btn-info btn-block", id: "fsearch") do %>
+              <div class="col-sm-2">
+                <label for="filter"></label>
+                  <!-- <a href="#" class="btn btn-block btn-primary">Full width Button</a> -->
+                  <%= button_tag(type: "submit", class: "btn btn-info btn-block", id: "fsearch") do %>
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
               <% end %>
+              </div>
+          </div>
+          <% end %>
+      </div>
 
 
 
-            <% end %> -->
-            <br>
+
+    </div>
 
 
         </div>
-        <!-- <div class="col-lg-2">
-          <br>
-          <img class="hidden-xs hidden-sm hidden-md" src="images/arrow2.png">
-          <h5>Filtered Search</h5>
-          <p>Feel free to narrow down your search.</p>
-        </div> -->
+
+
+
+
+<div class="container" id="result">
+<div id="flight-result">
+  <h3 class="text-left flight-header"> Available Flights </h3>
+  <hr>
+
+
+  <% for flight in @flights %>
+  <div class="col-md-3">
+            <!--Image Card-->
+            <% price = flight.price %>
+            <div class="card hoverable">
+                <div class="card-image">
+                    <div class="view overlay hm-white-slight z-depth-1">
+                        <a href="#">
+                            <div class="mask waves-effect"></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="card-content flight_title">
+                    <p><%= flight.from.country %> to <%= flight.to.country %></p>
+                  </div>
+
+                <div class="card-content">
+                  <p class="text-center"> Price </p>
+
+                    <p class="text-center"> <%= number_to_currency(price, locale: :ng) %> </p>
+                    </div>
+                <div class="card-content">
+                  <p class="text-center"> Airline </p>
+
+                    <p class="text-center"> <%= flight.airplane.airline.name %> </p>
+                    </div>
+                <div class="card-content">
+                    <p class="text-center">Departure Date</p>
+                    <p class="text-center"><span class="glyphicon glyphicon-calendar"></span> <%= flight.dept_date %></p>
+                    </div>
+                <!--Buttons-->
+                <div class="card-btn text-center">
+                    <% booking_details = {:id =>flight.id} %>
+                    <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
+                </div>
+                <!--/.Buttons-->
+            </div>
+            <!--Image Card-->
+        </div>
+        <% end %>
       </div>
-    </div> <!--/ .container -->
-</div><!--/ #headerwrap -->
 
-
-<div id="flight-result"></div>
+      </div>
+                    <div class="clear"></div>

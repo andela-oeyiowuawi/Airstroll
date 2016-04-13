@@ -1,6 +1,8 @@
 class FlightController < ApplicationController
   def index
     @airports = Airport.all
+    @flights =  Flight.where("dept_date < ? AND dept_date > ?", 2.days.from_now,
+                            Time.now)
   end
 
   def search

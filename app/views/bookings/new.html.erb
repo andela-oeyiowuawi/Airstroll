@@ -1,4 +1,4 @@
-
+<!--
 <div id="intro">
   <div class="container">
     <div class="row">
@@ -44,6 +44,61 @@
         <%= render 'partials/booking_form' %>
       </div>
     </div> <!--/ .container -->
-  </div><!--/ #introwrap -->
+  <!-- </div>
   <hr>
+</div> -->
+<div id="booking">
+<div class="container">
+<div class="col-md-5">
+<div class="panel panel-primary">
+ <div class="panel-heading"><%=@flight.airplane.airline.name%></div>
+ <div class="panel-body">
+   <p class="text-left"> Departure Airport: <%=  @flight.from.name %> </p>
+   <p class="text-left"> Arrival Airport: <%=  @flight.to.name %> </p>
+   <p class="text-left"> Airplane name: <%=  @flight.airplane.name %> </p>
+   <p class="text-left"> Flight Code: <%=  @flight.flight_code%> </p>
+   <p class="text-left pass"> Number Of Passenger(s): <%= @number_of_passengers.nil? ? 0 : @number_of_passengers %> </p>
+   <p class="text-left"> Price per Passenger: <%=  @flight.price %> </p>
+
+ </div>
 </div>
+</div>
+</div>
+</div>
+
+<!-- <div class="container">
+<div class="row">
+  <h1 class="text-left"> Arik Airline </h1>
+  <div class="col-lg-4">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Flight Details</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="list-group">
+      <li class="list-group-item">
+      <strong> Departure Airport</strong>
+      <p> Muritala Muhammed international Airport</p>
+      </li>
+      <li class="list-group-item">
+        <strong> Arrival Airport</strong>
+        <p> Heathrow international Airport</p>
+      </li>
+      <li class="list-group-item">
+        <strong> Flight Code</strong>
+        <p> ASF99 </p>
+      </li>
+      <li class="list-group-item">
+        <strong> Number Of Passengers</strong>
+        <p> 2 </p>
+      </li>
+      <li class="list-group-item">
+        <strong> Price per passenger</strong>
+        <p> 90000 </p>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>
+</div>
+</div> -->
