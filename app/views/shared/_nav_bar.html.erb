@@ -16,11 +16,10 @@
           <li class="active"><a href="<%= root_path%>" class="smothscroll">Home</a></li>
           </ul> -->
           <ul class = "nav navbar-nav navbar-right">
-            <li><a href="<%= flights_path %>" class=" smothscroll">All Flights</a></li>
+            <!-- <li><a href="<%= flights_path %>" class=" smothscroll">All Flights</a></li> -->
             <% if current_user.nil? %>
              <li><a href="#" class="" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
              <% else %>
-             <li> <%=image_tag(session[:image], class: "img-circle im")  %></li>
              <li>
              <%= link_to raw("<i class='fa fa-caret-down right'></i> #{current_user.name}"), "#", { class: "dropdown-button", :data => {:activates => "dropdown1",:toggle => "dropdown"} } %>
              <ul id="dropdown1" class="dropdown-menu">
@@ -29,6 +28,7 @@
              <li><%= link_to "Logout", logout_path %></li>
              </ul>
              </li>
+             <li> <%=image_tag(session[:image], class: "img-circle im")  %></li>
              <% end %>
 
           </ul>
@@ -52,12 +52,12 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title">Login</h4>
           </div>
-          <div class="col l2 offset-l1 s12">
+          <div class="col-md-6">
             <a href="/auth/google_oauth2" class="waves-effect waves-light btn red darken-2">Google</a>
           </div>
-          <div class="col l2 offset-l3 s12">
+          <div class="col-md-6">
             <a href="/auth/facebook" class="waves-effect waves-light btn  blue darken-4">Facebook</a>
           </div>
         </div>
+        </div>
       </div>
-    </div>

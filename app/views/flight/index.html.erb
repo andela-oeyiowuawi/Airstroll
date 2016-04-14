@@ -31,12 +31,11 @@
                <div class="col-sm-2">
                    <div class="form-group">
                      <label for="filter">Departure Date</label>
-                          <input id="departure_date" name="flight[date]" type="date" class="date-picker form-control" title="Departure Date"/>
+                          <input id="departure_date" name="flight[date]" type="date" class="box-default date-picker" title="Departure Date"/>
                         </div>
               </div>
               <div class="col-sm-2">
                 <label for="filter"></label>
-                  <!-- <a href="#" class="btn btn-block btn-primary">Full width Button</a> -->
                   <%= button_tag(type: "submit", class: "btn btn-info btn-block", id: "fsearch") do %>
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
               <% end %>
@@ -66,38 +65,25 @@
   <div class="col-md-3">
             <!--Image Card-->
             <% price = flight.price %>
-            <div class="card hoverable">
-                <div class="card-image">
-                    <div class="view overlay hm-white-slight z-depth-1">
-                        <a href="#">
-                            <div class="mask waves-effect"></div>
-                        </a>
+            <div class="card hoverable z-depth-4">
+                <div class="card-image flight_title">
+                    <div class="title text-center">
+                        <p><%= truncate(flight.from.city, length: 10) %> to <%= truncate(flight.to.city,length: 10) %> </p>
+
                     </div>
                 </div>
-                <div class="card-content flight_title">
-                    <p><%= flight.from.country %> to <%= flight.to.country %></p>
-                  </div>
-
-                <div class="card-content">
-                  <p class="text-center"> Price </p>
-
-                    <p class="text-center"> <%= number_to_currency(price, locale: :ng) %> </p>
-                    </div>
-                <div class="card-content">
-                  <p class="text-center"> Airline </p>
-
-                    <p class="text-center"> <%= flight.airplane.airline.name %> </p>
-                    </div>
-                <div class="card-content">
-                    <p class="text-center">Departure Date</p>
-                    <p class="text-center"><span class="glyphicon glyphicon-calendar"></span> <%= flight.dept_date %></p>
-                    </div>
-                <!--Buttons-->
-                <div class="card-btn text-center">
+                <div class="card-content ">
+                  <ul class="collection">
+                  <li class ="collection-item"><span class="glyphicon glyphicon-naira"></span> Price: <%= number_to_currency(price, locale: :ng) %> </li>
+                  <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= flight.airplane.airline.name %>  </li>
+                    <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= flight.dept_date %></li>
+                    <li class ="collection-item"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= flight.dept_time %> &nbsp; </li>
+                    <li class ="collection-item text-center">
                     <% booking_details = {:id =>flight.id} %>
                     <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
-                </div>
-                <!--/.Buttons-->
+                  </li>
+                  </ul>
+                  </div>
             </div>
             <!--Image Card-->
         </div>

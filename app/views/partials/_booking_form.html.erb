@@ -13,9 +13,9 @@
   <%= render 'partials/passenger_fields', f: passenger %>
   <% end %>
   <div class="links form-inline">
-    <%= link_to_add_association content_tag(:span, 'Add Passenger', class: "add_passenger"), f, :passengers, partial: "partials/passenger_fields", class: "btn btn-primary add form-control", onclick: "passenger_calc('add')" %>
+    <%= link_to_add_association 'Add Passenger',  f, :passengers, partial: "partials/passenger_fields", class: "btn btn-primary add form-control add_passenger", onclick: "passenger_calc('add')" %>
     <% if @booking.new_record? %>
-      <%= submit_tag( "Book Flight", {class: "btn btn-default form-control pull-right"}) %>
+      <%= submit_tag( "Book Flight", {class: "btn btn-primary form-control pull-right"}) %>
       <% else %>
       <%= submit_tag( "Save", {class: "btn btn-default pull-right"}) %>
       <% end %>

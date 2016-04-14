@@ -1,0 +1,36 @@
+<div class="profile-sidebar">
+  <div class="profile-userpic">
+    <%=image_tag(session[:image],class: "img-circle im responsive image_profile") %>
+  </div>
+
+  <div class="profile-usertitle">
+    <div class="profile-usertitle-name">
+      <%= current_user.name %>
+    </div>
+    <div class="profile-usertitle-job">
+      Traveller
+    </div>
+  </div>
+  <div class="profile-usermenu">
+    <ul class="nav">
+      <% if @active %>
+      <li class="active">
+        <% else %>
+        <li>
+          <% end %>
+        <a href="<%= user_profile_url %>">
+        <i class="glyphicon glyphicon-folder-open"></i>
+        Past Booking </a>
+      </li>
+      <% if @active_reservation %>
+        <li class="active">
+          <% else %>
+      <li>
+        <% end %>
+        <a href="<%= reservation_url %>">
+        <i class="glyphicon glyphicon-edit"></i>
+        Manage Bookings </a>
+      </li>
+    </ul>
+  </div>
+</div>

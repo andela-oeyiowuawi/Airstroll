@@ -9,31 +9,25 @@
 <div class="col-md-3">
           <!--Image Card-->
           <% price = flight.price %>
-          <div class="card hoverable">
-              <div class="card-image">
-                  <div class="view overlay hm-white-slight z-depth-1">
-                      <a href="#">
-                          <div class="mask waves-effect"></div>
-                      </a>
+          <div class="card hoverable z-depth-4">
+              <div class="card-image flight_title">
+                  <div class="title text-center">
+                      <p><%= truncate(flight.from.city, length: 10) %> to <%= truncate(flight.to.city,length: 10) %> </p>
+
                   </div>
               </div>
-              <div class="card-content">
-                  <p><%= flight.from.country %> to <%= flight.to.country %></p>
-                  </div>
-              <div class="card-content">
-                <p> Price </p>
-                  <%= number_to_currency(price, locale: :ng) %>
-                  </div>
-              <div class="card-content">
-                  <p>Departure Date</p>
-                  <p><span class="glyphicon glyphicon-calendar"></span> <%= flight.dept_date %></p>
-                  </div>
-              <!--Buttons-->
-              <div class="card-btn text-center">
+              <div class="card-content ">
+                <ul class="collection">
+                <li class ="collection-item"> Price: <%= number_to_currency(price, locale: :ng) %> </li>
+                <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= flight.airplane.airline.name %>  </li>
+                  <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= flight.dept_date %></li>
+                  <li class ="collection-item text-center"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= flight.dept_time %> &nbsp; </li>
+                  <li class ="collection-item text-center">
                   <% booking_details = {:id =>flight.id} %>
                   <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
-              </div>
-              <!--/.Buttons-->
+                </li>
+                </ul>
+                </div>
           </div>
           <!--Image Card-->
       </div>
