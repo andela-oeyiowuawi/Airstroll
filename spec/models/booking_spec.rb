@@ -39,23 +39,29 @@ RSpec.describe Booking, type: :model do
       it { expect(Booking.find_booking(bcode, user_id)).to eq nil }
     end
 
-    describe "returns nil if the current user didn't make a particular booking" do
+    describe "returns nil if the user didn't make a particular booking" do
       user_id = 2
-      it { expect(Booking.find_booking(booking.confirmation_code ,user_id)).to eq nil }
+      it "" do
+        expect(Booking.find_booking(booking.confirmation_code, user_id)).
+          to eq nil
+      end
     end
 
-    describe "returns the correct booking when supplied the right booking details" do
+    describe "returns the correct booking when supplied the right details" do
       user_id = 1
-      it { expect(Booking.find_booking(booking.confirmation_code,user_id)).to eq booking }
+      it "" do
+        expect(Booking.find_booking(booking.confirmation_code, user_id)).
+          to eq booking
+      end
     end
   end
 
   describe "generate_confirmation_code" do
-    it {expect(booking.generate_confirmation_code.length).to eq 8}
+    it { expect(booking.generate_confirmation_code.length).to eq 8 }
   end
 
   describe "generate_confirmation_code" do
-    let(:generate_confirmation_code) {"ABCDEFER"}
-    it {expect(booking.get_confirmation_code.length).to eq 8}
+    let(:generate_confirmation_code) { "ABCDEFER" }
+    it { expect(booking.get_confirmation_code.length).to eq 8 }
   end
 end

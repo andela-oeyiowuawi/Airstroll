@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   before_action :set_booking, only: [:update, :destroy, :show, :edit]
 
   def create
@@ -21,13 +20,11 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    # @booking = Booking.find params[:id]
     @flight = @booking.flight
     @number_of_passengers = @booking.no_of_passenger.to_i
   end
 
   def update
-    # @booking = Booking.find params[:id]
     @booking.update(booking_params)
     mail_sender(@booking, true)
     redirect_to user_profile_path, notice: "Booking successfully updated."
@@ -37,7 +34,6 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    # @booking = Booking.find params[:id]
     if @booking.destroy
       flash[:success] = "Booking cancelled successfully."
     else
@@ -51,7 +47,6 @@ class BookingsController < ApplicationController
   end
 
   def show
-    # @booking = Booking.find(params[:id])
     @flight = Flight.find(@booking.flight_id)
   end
 

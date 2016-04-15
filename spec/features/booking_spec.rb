@@ -10,17 +10,9 @@ RSpec.feature "Flights", type: :feature, js: true do
 
   context "anonymous user" do
     scenario "book flight with valid passenger detail", js: true do
-      # visit root_path
-      # select "Murtala Muhammed International Airport", from: "from_airport"
-      # select "Nnamdi Azikwe International Airport", from: "to_airport"
-      # click_button "fsearch"
-      # click_link "bkfl"
-
       find_and_book_flight
 
-      sleep 6
       find(".add_passenger").click
-      sleep 4
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
 
