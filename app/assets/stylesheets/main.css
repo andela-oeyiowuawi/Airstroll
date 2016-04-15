@@ -1,18 +1,95 @@
+.col-md-5.display-details.activate{
+  margin-top: -10%;
+}
+.alert{
+  margin-top: 10%;
+}
+.bg-class {
+    background-image: url('bg-2.jpg');
 
-body {
-  background-color: #f2f2f2;
-    font-family: "Lato";
-    font-weight: 300;
-    font-size: 16px;
-    color: #555;
-    padding-top: 50px;
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -2;
+    background-position: 50% 50%;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 
-    -webkit-font-smoothing: antialiased;
-    -webkit-overflow-scrolling: touch;
+}
+.center-table
+{
+  margin: 0 auto !important;
+  float: none !important;
+}
+/*.list-details{
+  width: 50%;
+}*/
+.details{
+  margin-top: 60px;
+}
+.panel-heading.airline{
+  font-size: 1.8em;
+}
+.date-picker{
+  background-color: #fff !important;
+  border-radius: 4px;
+}
+.panel {
+    /* margin-bottom: 20px; */
+    background-color: #fff;
+    border: 1px solid;
+    border-radius: 4px;
+    margin-top: 30%;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}
+
+
+h1 { margin-bottom: 50px; }
+h1, h2 { text-align: center; }
+
+.searchBox {
+  background: rgba(200, 200, 200, 0.8);;
+  margin: 200px auto;
+  padding-bottom: 50px;
+  vertical-align: middle;
+}
+
+#booking{
+  position: relative;
+  padding-top: 20px;
+  min-height: 680px;
+}
+/*#profile{
+  background-color: #fff;
+  border: 1px solid;
+  border-radius: 4px;
+  margin-top: 30%;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+}*/
+.footer{
+  padding: 20px;
+  background-color: #305288;
+  color: #fff;
+  margin-bottom: -10px;
+  position: relative;
+
+}
+.flight_title{
+  background: #305288;
+  color: white;
+}
+#flight_header{
+  margin-top: 20%;
 }
 
 /* Titles */
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h6 {
     font-family: "Raleway";
     font-weight: 300;
     color: #333;
@@ -29,131 +106,178 @@ p {
     text-align: center;
 }
 
-/* Links */
-a {
-    color: #3bc492;
-    word-wrap: break-word;
-
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-}
-
-a:hover,
-a:focus {
-    color: #c0392b;
-    text-decoration: none;
-    outline: 0;
-}
-
-a:before,
-a:after {
-    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
-    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
-    transition: color 0.1s ease-in, background 0.1s ease-in;
-}
-
- hr {
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
-}
-
 
 /* ==========================================================================
    Wrap Sections
    ========================================================================== */
 
 #headerwrap {
-	background-color: #34495e;
+	background-color: #305288;
 	padding-top: 60px;
 }
 
 #headerwrap h1 {
 	margin-top: 30px;
-	color: white;
+	color: blue;
 	font-size: 70px;
 
 }
 
+
+#navigation{
+  background: #305288 !important;
+}
+
 #headerwrap h3 {
-	color: white;
+	color: black;
 	font-size: 30px;
 }
 
 #headerwrap h5 {
-	color: white;
+	color: blue;
 	font-weight: 700;
 	text-align: left;
 }
 
 #headerwrap p {
 	text-align: left;
-	color: white
+	color: blue;
 }
 
-/* intro Wrap */
-
-#intro {
-	padding-top: 50px;
-	border-top: #bdc3c7 solid 5px;
+.top-nav-collapse {
+    padding: 0;
+     background-color: #000 !important;
+     opacity: 0.50;
+     filter: alpha(opacity=90);
+}
+body {
+  background: #F1F3FA;
 }
 
-#features {
-	padding-top: 50px;
-	padding-bottom: 50px;
+/* Profile container */
+.profile {
+  margin: 20px 0;
+  margin-top: 10%;
 }
 
-#features .ac a{
-	font-size: 20px;
+/* Profile sidebar */
+.profile-sidebar {
+  padding: 20px 0 10px 0;
+  background: #fff;
+}
+.image_profile{
+  height: 127px;
+}
+.profile-userpic img {
+  text-align: center;
+  float: none;
+  margin: 0px 64px 0px 64px;
+  width: 50%;
+  height: 50%;
+  -webkit-border-radius: 50% !important;
+  -moz-border-radius: 50% !important;
+  border-radius: 50% !important;
 }
 
-/* Showcase Wrap */
-
-#showcase {
-	display: block;
-	background-color: #34495e;
-	padding-top: 50px;
-	padding-bottom: 50px;
+.profile-usertitle {
+  text-align: center;
+  margin-top: 20px;
 }
 
-#showcase h1 {
-	color: white;
+.profile-usertitle-name {
+  color: #5a7391;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 7px;
 }
 
-#footerwrap {
-	background-color: #2f2f2f;
-	color: white;
-	padding-top: 40px;
-	padding-bottom: 60px;
-	text-align: left;
+.profile-usertitle-job {
+  text-transform: uppercase;
+  color: #5b9bd1;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 15px;
 }
 
-#footerwrap h3 {
-	font-size: 28px;
-	color: white;
+.profile-userbuttons {
+  text-align: center;
+  margin-top: 10px;
 }
 
-#footerwrap p {
-	color: white;
-	font-size: 18px;
+.profile-userbuttons .btn {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 15px;
+  margin-right: 5px;
 }
 
-/* Copyright Wrap */
-
-#c {
-	background: #222222;
-	padding-top: 15px;
-	text-align: right;
+.profile-userbuttons .btn:last-child {
+  margin-right: 0px;
 }
 
-#c p {
-	color: white
+.profile-usermenu {
+  margin-top: 30px;
 }
+
+.profile-usermenu ul li {
+  border-bottom: 1px solid #f0f4f7;
+}
+
+.profile-usermenu ul li:last-child {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li a {
+  color: #93a3b5;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.profile-usermenu ul li a i {
+  margin-right: 8px;
+  font-size: 14px;
+}
+
+.profile-usermenu ul li a:hover {
+  background-color: #fafcfd;
+  color: #5b9bd1;
+}
+
+.profile-usermenu ul li.active {
+  border-bottom: none;
+}
+
+.profile-usermenu ul li.active a {
+  color: #5b9bd1;
+  background-color: #f6f9fb;
+  border-left: 2px solid #5b9bd1;
+  margin-left: -2px;
+}
+
+/* Profile Content */
+.profile-content {
+  padding: 20px;
+  background: #fff;
+  min-height: 460px;
+}
+.card-content {
+    .collection {
+      border: none;
+    }
+  }
+  .card {
+  .card-image {
+    position: relative;
+    width: 100%;
+
+    .card-title {
+      position: relative;
+      font-size: 1.28rem;
+      line-height: 1.6em;
+      text-align: center;
+      width: 100%;
+      padding: 10px 15px;
+      text-transform: uppercase;
+      /*background: rgba(0, 0, 0, 0.1);*/
+    }

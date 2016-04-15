@@ -8,7 +8,18 @@ class Booking < ActiveRecord::Base
   validates :flight_id, presence: true
   validates :no_of_passenger, presence: true
 
-  def self.find_booking(bcode)
-    find_by(confirmation_code: bcode)
+  before_create :get_confirmation_code
+
+  def self.find_booking(bcode, id)
+    where(confirmation_code: bcode, user_id: id).first
+  end
+
+  def generate_confirmation_code
+    charsett = %w{ 2 3 4 6 7 9 A C D E F G H J K M N P Q R T V W X Y Z}
+    (0..7).map { charsett[rand(charsett.size)] }.join
+  end
+
+  def get_confirmation_code
+    self.confirmation_code = generate_confirmation_code
   end
 end

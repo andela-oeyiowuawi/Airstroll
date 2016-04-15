@@ -1,35 +1,24 @@
-<% if @bookings.empty? %>
-<h3 class="text-center"> You have no Bookings yet </h3>
-<p class="text-center">Click <%= link_to "here", root_path %> to book a flight </p>
-<% else %>
- <table class="table table-hover">
-   <thead>
-     <tr>
-       <th>Booking Code</th>
-       <th>Departure Airport</th>
-       <th>Destination Airport</th>
-       <th>Airline</th>
-       <th>Departure Date and Time</th>
-       <th>Price</th>
-       <th></th>
-     </tr>
-   </thead>
 
-   <tbody>
-     <% @bookings.each do |booking| %>
-     <tr>
-       <td> <%= booking.confirmation_code  %> </td>
-       <td> <%= booking.flight.from.name %> </td>
-       <td> <%= booking.flight.to.name %> </td>
-       <td> <%= booking.flight.airplane.airline.name %> </td>
-       <td> <%= booking.flight.dept_date %> <%= booking.flight.dept_date %> </td>
-       <% total_cost = booking.flight.price.to_i * booking.passengers.count.to_i %>
-       <td> <%= total_cost %> </td>
-       <% if booking.flight.dept_date > Date.today %>
-        <td><%= link_to "cancel", cancel_path(id: booking.id), class: "btn btn-danger" %></td>
-        <% end %>
-     </tr>
-     <% end %>
-   </tbody>
- </table>
- <% end %>
+<% @active = true %>
+<% @active_reservation = false %>
+<div class="container">
+  <% if notice %>
+<div class="alert alert-success alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Success!</strong> <%= notice %>
+</div>
+<% end %>
+    <div class="row profile">
+		<div class="col-md-3">
+      <%= render 'partials/user_side_bar' %>
+		</div>
+		<div class="col-md-9">
+            <div class="profile-content">
+              <%= render "partials/past_booking" %>
+            </div>
+		</div>
+	</div>
+</div>
+
+<br>
+<br>
