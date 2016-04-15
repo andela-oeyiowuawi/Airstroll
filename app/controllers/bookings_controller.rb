@@ -41,7 +41,8 @@ class BookingsController < ApplicationController
   end
 
   def find_reservation
-    @reservation = Booking.find_booking(params[:bcode])
+    @reservation = Booking.find_booking(params[:bcode], current_user.id)
+    binding.pry
   end
 
   def show
@@ -57,8 +58,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:user_id, :no_of_passenger,
-                                    :confirmation_code, :flight_id,
+    params.require(:booking).permit(:user_id, :no_of_passenger, :flight_id,
                                     passengers_attributes: [:id, :name,
                                                             :email, :_destroy])
   end

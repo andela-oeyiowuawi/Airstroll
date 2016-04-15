@@ -15,6 +15,20 @@
     background-size: cover;
 
 }
+.center-table
+{
+  margin: 0 auto !important;
+  float: none !important;
+}
+/*.list-details{
+  width: 50%;
+}*/
+.details{
+  margin-top: 60px;
+}
+.panel-heading.airline{
+  font-size: 1.8em;
+}
 .date-picker{
   background-color: #fff !important;
   border-radius: 4px;
