@@ -1,4 +1,9 @@
-
+.col-md-5.display-details.activate{
+  margin-top: -10%;
+}
+.alert{
+  margin-top: 10%;
+}
 .bg-class {
     background-image: url('bg-2.jpg');
 

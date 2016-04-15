@@ -4,7 +4,13 @@
   <!-- <div class="row"> -->
   <!-- </div> -->
 <div class="row">
-<div class="col-md-5">
+  <% if notice %>
+<div class="alert alert-danger alert-dismissible" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>OOOPPSS!</strong> <%= notice %>
+</div>
+<% end %>
+<div class="col-md-5 display-details <%= "activate" if notice %>">
 <div class="panel panel-primary">
  <div class="panel-heading airline"><%=@flight.airplane.airline.name%></div>
  <div class="panel-body">
@@ -20,7 +26,7 @@
 </div>
 
 
-  <div class="col-md-5">
+  <div class="col-md-5 display-details <%= "activate" if notice %>">
     <div class="panel panel-primary">
     <div class="panel-heading">
       Passenger Details

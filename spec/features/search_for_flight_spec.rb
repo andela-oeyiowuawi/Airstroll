@@ -10,7 +10,7 @@ RSpec.feature "Flights", type: :feature do
 
   scenario "home page" do
     visit "/"
-    expect(page).to have_content("Welcome To Airstroll")
+    expect(page).to have_content("Airstroll")
   end
   context "search for flight", js: true do
     scenario "that has no result" do
@@ -18,22 +18,15 @@ RSpec.feature "Flights", type: :feature do
       select "Nnamdi Azikwe International Airport", from: "from_airport"
       select "Dubai International Airport", from: "to_airport"
       click_button "fsearch"
-      expect(page).to have_content("There is no result that match your search")
+      expect(page).to have_content("There are no Flights that matches Your search. Try to search again")
     end
     scenario "that is available", js: true do
       visit root_path
       select "Murtala Muhammed International Airport", from: "from_airport"
       select "Nnamdi Azikwe International Airport", from: "to_airport"
       click_button "Search"
-      within("tbody") do
-        expect(page).to have_selector("tr", count: 1)
-      end
+      expect(page).to have_content("Book", count: 1)
     end
-    scenario "that hasn't departed" do
-      visit "flight/all"
-      within("tbody") do
-        expect(page).to have_selector("tr", count: 2)
-      end
-    end
+
   end
 end

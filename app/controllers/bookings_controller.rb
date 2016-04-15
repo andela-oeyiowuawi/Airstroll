@@ -1,12 +1,18 @@
 class BookingsController < ApplicationController
+
+  before_action :set_booking, only: [:update, :destroy, :show, :edit]
+
   def create
     if booking_params[:passengers_attributes].nil?
       redirect_to :back, notice: "You must have at least one passenger"
     else
       booking = Booking.new(booking_params)
-      booking.save
-      mail_sender(booking)
-      redirect_to booking_path(booking)
+      if booking.save
+        mail_sender(booking)
+        redirect_to booking_path(booking)
+      else
+        redirect_to :back, notice: "Booking failed. Try again!!"
+      end
     end
   end
 
@@ -15,13 +21,13 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    @booking = Booking.find params[:id]
+    # @booking = Booking.find params[:id]
     @flight = @booking.flight
     @number_of_passengers = @booking.no_of_passenger.to_i
   end
 
   def update
-    @booking = Booking.find params[:id]
+    # @booking = Booking.find params[:id]
     @booking.update(booking_params)
     mail_sender(@booking, true)
     redirect_to user_profile_path, notice: "Booking successfully updated."
@@ -31,8 +37,8 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    booking = Booking.find params[:id]
-    if booking.destroy
+    # @booking = Booking.find params[:id]
+    if @booking.destroy
       flash[:success] = "Booking cancelled successfully."
     else
       flash[:alert] = "Unable to cancel the booking, please contact the admin."
@@ -42,11 +48,10 @@ class BookingsController < ApplicationController
 
   def find_reservation
     @reservation = Booking.find_booking(params[:bcode], current_user.id)
-    binding.pry
   end
 
   def show
-    @booking = Booking.find(params[:id])
+    # @booking = Booking.find(params[:id])
     @flight = Flight.find(@booking.flight_id)
   end
 
@@ -61,6 +66,10 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:user_id, :no_of_passenger, :flight_id,
                                     passengers_attributes: [:id, :name,
                                                             :email, :_destroy])
+  end
+
+  def set_booking
+    @booking = Booking.find(params[:id])
   end
 
   def mail_sender(booking, update = false)

@@ -1,7 +1,7 @@
 class FlightController < ApplicationController
   def index
     @airports = Airport.all
-    @flights =  Flight.all.paginate(page: params[:page], per_page: 8)
+    @flights =  Flight.available.paginate(page: params[:page], per_page: 8)
   end
 
   def search

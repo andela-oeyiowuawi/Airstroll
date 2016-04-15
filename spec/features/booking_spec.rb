@@ -10,13 +10,17 @@ RSpec.feature "Flights", type: :feature, js: true do
 
   context "anonymous user" do
     scenario "book flight with valid passenger detail", js: true do
-      visit root_path
-      select "Murtala Muhammed International Airport", from: "from_airport"
-      select "Nnamdi Azikwe International Airport", from: "to_airport"
-      click_button "fsearch"
-      click_link "bkfl"
+      # visit root_path
+      # select "Murtala Muhammed International Airport", from: "from_airport"
+      # select "Nnamdi Azikwe International Airport", from: "to_airport"
+      # click_button "fsearch"
+      # click_link "bkfl"
 
+      find_and_book_flight
+
+      sleep 6
       find(".add_passenger").click
+      sleep 4
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
 
@@ -25,17 +29,12 @@ RSpec.feature "Flights", type: :feature, js: true do
     end
 
     scenario "can't book flight with no passenger", js: true do
-      visit root_path
-      select "Murtala Muhammed International Airport", from: "from_airport"
-      select "Nnamdi Azikwe International Airport", from: "to_airport"
-      click_button "fsearch"
-      click_link "bkfl"
-      expect(page).to have_content("Add Passengers")
+      find_and_book_flight
       click_button "Book Flight"
       expect(page).to have_content("You must have at least one passenger")
     end
   end
-  
+
   context "logged in User" do
     scenario "can book flight with valid passenger detail", js: true do
       visit root_path
@@ -44,9 +43,7 @@ RSpec.feature "Flights", type: :feature, js: true do
       set_valid_omniauth
 
       expect(page).to have_content("Signed")
-      sleep 3
-      visit "flight/all"
-      first('#fl').click_link("Book")
+      find_and_book_flight
       find(".add_passenger").click
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
@@ -57,12 +54,19 @@ RSpec.feature "Flights", type: :feature, js: true do
       fill_in "bcode", with: Booking.pluck(:confirmation_code).last
       click_button "Find Reservation"
       click_link "Edit"
-      expect(page).to have_content("Add Passengers")
       find(".add_passenger").click
       page.all(:fillable_field, "pass_name")[1].set("Ikem Okonkwo")
       page.all(:fillable_field, "pass_email")[1].set("kem.okonkwo@andela.com")
       click_button "Save"
       expect(page).to have_content("Booking successfully updated")
     end
+  end
+
+  def find_and_book_flight
+    visit root_path
+    select "Murtala Muhammed International Airport", from: "from_airport"
+    select "Nnamdi Azikwe International Airport", from: "to_airport"
+    click_button "fsearch"
+    click_link "bkfl"
   end
 end
