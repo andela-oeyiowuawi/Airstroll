@@ -22,3 +22,4 @@ exclude_paths:
 - coverage/**/*
 - public/**/*
 - db/**/*
+- app/assets/**/*

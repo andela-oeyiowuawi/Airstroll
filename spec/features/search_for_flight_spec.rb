@@ -13,7 +13,6 @@ RSpec.feature "Flights", type: :feature do
     expect(page).to have_content("Airstroll")
   end
   context "search for flight", js: true do
-
     scenario "that has no result" do
       visit root_path
 

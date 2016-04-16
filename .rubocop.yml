@@ -6,6 +6,8 @@ AllCops:
     - "Rakefile"
     - "bin/spring"
     - "spec/rails_helper.rb"
+    - "spec/spec_helper.rb"
+    - "config/initializers/assets.rb"
   UseCache: false
 Style/CollectionMethods:
   Description: Preferred collection methods.
