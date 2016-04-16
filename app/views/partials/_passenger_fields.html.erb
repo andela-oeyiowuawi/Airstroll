@@ -1,9 +1,9 @@
 <div class="nested-fields form-inline block">
   <div class="form-group">
-    <%= f.text_field :name, class: 'form-control input-sm ', id: "pass_name", placeholder: "Name" %>
+    <%= f.text_field :name, class: 'form-control input-sm ', id: "pass_name", placeholder: "Name", required: true %>
   </div>
   <div class="form-group">
-    <%= f.email_field :email, class: 'form-control input-sm pass_email', id: "pass_email", placeholder: "Email" %>
+    <%= f.email_field :email, class: 'form-control input-sm pass_email', id: "pass_email", placeholder: "Email",required: true %>
   </div>
   <%= link_to_remove_association "Remove", f, class: "btn btn-danger", onclick: "passenger_calc('subtract')" %>
   <hr>

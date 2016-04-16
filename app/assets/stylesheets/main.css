@@ -143,13 +143,18 @@ p {
 	text-align: left;
 	color: blue;
 }
-
-.top-nav-collapse {
+.navbar {
+    border: 0;
+    border-radius: 0;
+    margin-bottom: -1%;
+}
+/*.top-nav-collapse {
     padding: 0;
      background-color: #000 !important;
      opacity: 0.50;
      filter: alpha(opacity=90);
-}
+     margin-top: 10%;
+}*/
 body {
   background: #F1F3FA;
 }

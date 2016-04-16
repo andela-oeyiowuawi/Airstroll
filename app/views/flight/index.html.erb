@@ -1,94 +1,93 @@
 <section id="home" name="home"></section>
 <div id="headerwrap" class="bg-class">
-    <div class="container">
+  <div class="container">
 
 
-      <div class="container searchBox">
-        <%= form_tag({controller: "flight", action: "search"}, method: "post", role: "form", remote: true) do %>
-          <div class="row">
-              <h3 class="text-center">Where do you want to go?</h3>
-              <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="filter">Origin Airport</label>
-                    <select  name="flight[from]" id="from_airport" class="form-control">
-                      <option>Flight Origin</option>
-                      <%= render 'partials/airport_list'%>
-                    </select>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                  <div class="form-group">
-                    <label for="filter">Destination Airport</label>
-                    <select  name="flight[to]" id="to_airport" class="form-control">
-                      <option>Flight Destination</option>
-                      <%= render 'partials/airport_list'%>
-                    </select>
-                </div>
-              </div>
-
-               <div class="col-sm-2">
-                   <div class="form-group">
-                     <label for="filter">Departure Date</label>
-                          <input id="departure_date" name="flight[date]" type="date" class="box-default date-picker" title="Departure Date"/>
-                        </div>
-              </div>
-              <div class="col-sm-2">
-                <label for="filter"></label>
-                  <%= button_tag(type: "submit", class: "btn btn-info btn-block", id: "fsearch") do %>
-                <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
-              <% end %>
-              </div>
+    <div class="container searchBox">
+      <%= form_tag({controller: "flight", action: "search"}, method: "post", role: "form", remote: true) do %>
+      <div class="row">
+        <h3 class="text-center">Where do you want to go?</h3>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="filter">Origin Airport</label>
+            <select  name="flight[from]" id="from_airport" class="form-control">
+              <option>Flight Origin</option>
+              <%= render 'partials/airport_list'%>
+            </select>
           </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <label for="filter">Destination Airport</label>
+            <select  name="flight[to]" id="to_airport" class="form-control">
+              <option>Flight Destination</option>
+              <%= render 'partials/airport_list'%>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-sm-2">
+          <div class="form-group">
+            <label for="filter">Departure Date</label>
+            <input id="departure_date" name="flight[date]" type="date" class="box-default date-picker" title="Departure Date"/>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <label for="filter"></label>
+          <%= button_tag(type: "submit", class: "btn btn-info btn-block", id: "fsearch") do %>
+          <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search
           <% end %>
-
+        </div>
       </div>
-
-
-
+      <% end %>
 
     </div>
 
 
-        </div>
+
+
+  </div>
+
+
+</div>
 
 
 
 
 <div class="container" id="result">
-<div id="flight-result">
-  <h3 class="text-left flight-header"> Available Flights </h3>
-  <hr>
+  <div id="flight-result">
+    <h3 class="text-left flight-header"> Available Flights </h3>
+    <hr>
 
 
-  <% for flight in @flights %>
-  <div class="col-md-3">
-            <!--Image Card-->
-            <% price = flight.price %>
-            <div class="card hoverable z-depth-4">
-                <div class="card-image flight_title">
-                    <div class="title text-center">
-                        <p><%= truncate(flight.from.city, length: 10) %> to <%= truncate(flight.to.city,length: 10) %> </p>
+    <% for flight in @flights %>
+    <div class="col-md-3">
+      <!--Image Card-->
+      <% price = flight.price %>
+      <div class="card hoverable z-depth-4">
+        <div class="card-image flight_title">
+          <div class="title text-center">
+            <p><%= truncate(flight.from.city, length: 10) %> to <%= truncate(flight.to.city,length: 10) %> </p>
 
-                    </div>
-                </div>
-                <div class="card-content ">
-                  <ul class="collection">
-                  <li class ="collection-item"><span class="glyphicon glyphicon-naira"></span> Price: <%= number_to_currency(price, locale: :ng) %> </li>
-                  <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= flight.airplane.airline.name %>  </li>
-                    <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= flight.dept_date %></li>
-                    <li class ="collection-item"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= flight.dept_time %> &nbsp; </li>
-                    <li class ="collection-item text-center">
-                    <% booking_details = {:id =>flight.id} %>
-                    <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
-                  </li>
-                  </ul>
-                  </div>
-            </div>
-            <!--Image Card-->
+          </div>
         </div>
-        <% end %>
-         <%= will_paginate @flights,renderer: BootstrapPagination::Rails %>
+        <div class="card-content ">
+          <ul class="collection">
+            <li class ="collection-item"><span class="glyphicon glyphicon-naira"></span> Price: <%= number_to_currency(price, locale: :ng) %> </li>
+            <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= flight.airplane.airline.name %>  </li>
+            <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= flight.dept_date %></li>
+            <li class ="collection-item"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= flight.dept_time %> &nbsp; </li>
+            <li class ="collection-item text-center">
+              <% booking_details = {:id =>flight.id} %>
+              <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
+            </li>
+          </ul>
+        </div>
       </div>
+    </div>
+    <% end %>
+    <%= will_paginate @flights,renderer: BootstrapPagination::Rails %>
+  </div>
 
-      </div>
-                    <div class="clear"></div>
+</div>
+<div class="clear"></div>

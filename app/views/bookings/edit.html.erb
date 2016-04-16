@@ -1,34 +1,32 @@
 
 <div id="booking">
-<div class="container">
-<div class="row">
-<div class="col-md-5">
-<div class="panel panel-primary">
- <div class="panel-heading"><%=@flight.airplane.airline.name%></div>
- <div class="panel-body">
-   <p class="text-left"><strong> Departure Airport:</strong> <%=  @flight.from.name %> </p>
-   <p class="text-left"><strong> Arrival Airport:</strong> <%=  @flight.to.name %> </p>
-   <p class="text-left"><strong> Airplane name: </strong><%=  @flight.airplane.name %> </p>
-   <p class="text-left"><strong> Flight Code: </strong><%=  @flight.flight_code%> </p>
-   <p class="text-left"><strong> Number Of Passenger(s):</strong><span class="pass"> <%= @number_of_passengers.nil? ? 0 : @number_of_passengers %></span> </p>
-   <p class="text-left"><strong> Price per Passenger: </strong><%=  @flight.price %> </p>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <div class="panel panel-primary">
+          <div class="panel-heading"><%=@flight.airplane.airline.name%></div>
+          <div class="panel-body">
+            <p class="text-left"><strong> Departure Airport:</strong> <%=  @flight.from.name %> </p>
+            <p class="text-left"><strong> Arrival Airport:</strong> <%=  @flight.to.name %> </p>
+            <p class="text-left"><strong> Airplane name: </strong><%=  @flight.airplane.name %> </p>
+            <p class="text-left"><strong> Flight Code: </strong><%=  @flight.flight_code%> </p>
+            <p class="text-left"><strong> Number Of Passenger(s):</strong><span class="pass"> <%= @number_of_passengers.nil? ? 0 : @number_of_passengers %></span> </p>
+            <p class="text-left"><strong> Price per Passenger: </strong><%=  @flight.price %> </p>
 
- </div>
-</div>
-</div>
-
-
-  <div class="col-md-5">
-    <div class="panel panel-primary">
-    <div class="panel-heading">
-      Passenger Details
-    </div>
-      <div class="panel-body">
-        <%= render 'partials/booking_form' %>
+          </div>
+        </div>
       </div>
-      <!-- <div class="panel-footer">Panel footer</div>
-    </div> -->
+
+
+      <div class="col-md-5">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            Passenger Details
+          </div>
+          <div class="panel-body">
+            <%= render 'partials/booking_form' %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-</div>
-</div>

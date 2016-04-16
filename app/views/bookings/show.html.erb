@@ -1,90 +1,66 @@
-<!-- <div id="intro"> -->
-  <div class="container">
-    <div class="row details">
-      <h3 class="text-center">Your Flight Has been successfully Booked.</h3>
-      <h4 class="text-center">Here are your Flight Details</h4>
+<div class="container">
+  <div class="row details">
+    <h3 class="text-center">Your Flight Has been successfully Booked.</h3>
+    <h4 class="text-center">Here are your Flight Details</h4>
 
-      <div class="col ">
-        <div class="table-responsive list-details">
+    <div class="col ">
+      <div class="table-responsive list-details">
 
-          <table class="table table-hover center-table">
+        <table class="table table-hover center-table">
 
- <tbody>
-    <tr>
-      <th>Departure Airport</th>
-      <td><%= @flight.from.name%></td>
-  </tr>
+          <tbody>
+            <tr>
+              <th>Departure Airport</th>
+              <td><%= @flight.from.name%></td>
+            </tr>
 
-  <tr>
-    <th>Arrival Airport</th>
-    <td><%= @flight.to.name%></td>
-  </tr>
+            <tr>
+              <th>Arrival Airport</th>
+              <td><%= @flight.to.name%></td>
+            </tr>
 
-  <tr>
-    <th>Airline Name</th>
-    <td><%=@flight.airplane.airline.name%></td>
-  </tr>
-  <tr>
-    <th>Airplane Name</th>
-    <td><%= @flight.airplane.name %></td>
-  </tr>
-  <tr>
-  <tr>
-    <th>Booking Confirmation Code</th>
-    <td><%= @booking.confirmation_code %></td>
-  </tr>
-  <tr>
-    <th>Departure Date</th>
-    <td><%=@flight.dept_date %></td>
-  </tr>
-  <tr>
-    <th>Departure Time</th>
-    <td><%=@flight.dept_time %></td>
-  </tr>
+            <tr>
+              <th>Airline Name</th>
+              <td><%=@flight.airplane.airline.name%></td>
+            </tr>
+            <tr>
+              <th>Airplane Name</th>
+              <td><%= @flight.airplane.name %></td>
+            </tr>
+            <tr>
+              <tr>
+                <th>Booking Confirmation Code</th>
+                <td><%= @booking.confirmation_code %></td>
+              </tr>
+              <tr>
+                <th>Departure Date</th>
+                <td><%=@flight.dept_date %></td>
+              </tr>
+              <tr>
+                <th>Departure Time</th>
+                <td><%=@flight.dept_time %></td>
+              </tr>
 
-  <tr>
-    <th>Number of Passenger</th>
-    <td><%= @booking.passengers.count %></td>
-  </tr>
+              <tr>
+                <th>Number of Passenger</th>
+                <td><%= @booking.passengers.count %></td>
+              </tr>
 
-  <tr>
-    <th>Price Per Passenger</th>
-    <td><%= @flight.price %></td>
-  </tr>
+              <tr>
+                <th>Price Per Passenger</th>
+                <td><%= @flight.price %></td>
+              </tr>
 
-  <tr>
-    <th>Total cost </th>
-    <td><%= @flight.price.to_i * @booking.passengers.count.to_i %></td>
-  </tr>
+              <tr>
+                <th>Total cost </th>
+                <td><%= @flight.price.to_i * @booking.passengers.count.to_i %></td>
+              </tr>
 
- </tbody>
-</table>
-</div>
+            </tbody>
+          </table>
+        </div>
 
       </div>
 
     </div>
-</div>
-<!-- </div> -->
-<!-- <div class="container">
-  <div class="row">
-  <div class="jumbotron ">
-    <div class="col-md-6 col-md-offset-3">
-    <div class="text-center">
-      <h3>Your Flight Has been successfully Booked</h3>
-    <h3>A confirmation has been sent to your email</h3>
-    <p>Departure Airport:<%= @flight.from.name%> </p>
-    <p>Arrival Airport: <%= @flight.to.name%> </p>
-    <p>Airline: <%=@flight.airplane.airline.name%></p>
-    <p>Airplane name: <%= @flight.airplane.name %></p>
-    <p>Departure date: <%=@flight.dept_date %></p>
-    <p>Departure Time: <%=@flight.dept_time %></p>
-    <p>Booking Code: <%= @booking.confirmation_code %></p>
-    <p>Number of Passenger(s): <%= @booking.passengers.count %></p>
-    <p>Price Per Passenger: <%= @flight.price %><</p>
-    <p>Total cost: <%= @flight.price.to_i * @booking.passengers.count.to_i %></p>
   </div>
-  </div>
-</div>
-</div>
-</div> -->

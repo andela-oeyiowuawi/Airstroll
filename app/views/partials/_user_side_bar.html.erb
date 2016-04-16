@@ -18,19 +18,19 @@
         <% else %>
         <li>
           <% end %>
-        <a href="<%= user_profile_url %>">
-        <i class="glyphicon glyphicon-folder-open"></i>
-        Past Booking </a>
-      </li>
-      <% if @active_reservation %>
-        <li class="active">
-          <% else %>
-      <li>
-        <% end %>
-        <a href="<%= reservation_url %>">
-        <i class="glyphicon glyphicon-edit"></i>
-        Manage Bookings </a>
-      </li>
-    </ul>
-  </div>
-</div>
+          <a href="<%= user_profile_url %>">
+            <i class="glyphicon glyphicon-folder-open"></i>
+            Past Booking </a>
+          </li>
+          <% if @active_reservation %>
+          <li class="active">
+            <% else %>
+            <li>
+              <% end %>
+              <a href="<%= reservation_url %>">
+                <i class="glyphicon glyphicon-edit"></i>
+                Manage Bookings </a>
+              </li>
+            </ul>
+          </div>
+        </div>

@@ -5,33 +5,32 @@
 <h3 class="text-left flight-header"> Search Result </h3>
 <hr>
 <% if !@search_result.empty? %>
-<% for flight in @search_result %>
-<div class="col-md-3">
-          <!--Image Card-->
-          <% price = flight.price %>
-          <div class="card hoverable z-depth-4">
-              <div class="card-image flight_title">
-                  <div class="title text-center">
-                      <p><%= truncate(flight.from.city, length: 10) %> to <%= truncate(flight.to.city,length: 10) %> </p>
+  <% for flight in @search_result %>
+  <div class="col-md-3">
+    <!--Image Card-->
+    <% price = flight.price %>
+    <div class="card hoverable z-depth-4">
+      <div class="card-image flight_title">
+        <div class="title text-center">
+          <p><%= truncate(flight.from.city, length: 10) %> to <%= truncate(flight.to.city,length: 10) %> </p>
 
-                  </div>
-              </div>
-              <div class="card-content ">
-                <ul class="collection">
-                <li class ="collection-item"> Price: <%= number_to_currency(price, locale: :ng) %> </li>
-                <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= flight.airplane.airline.name %>  </li>
-                  <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= flight.dept_date %></li>
-                  <li class ="collection-item text-center"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= flight.dept_time %> &nbsp; </li>
-                  <li class ="collection-item text-center">
-                  <% booking_details = {:id =>flight.id} %>
-                  <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
-                </li>
-                </ul>
-                </div>
-          </div>
-          <!--Image Card-->
+        </div>
       </div>
-      <% end %>
+      <div class="card-content ">
+        <ul class="collection">
+          <li class ="collection-item"> Price: <%= number_to_currency(price, locale: :ng) %> </li>
+          <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= flight.airplane.airline.name %>  </li>
+          <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= flight.dept_date %></li>
+          <li class ="collection-item text-center"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= flight.dept_time %> &nbsp; </li>
+          <li class ="collection-item text-center">
+            <% booking_details = {:id =>flight.id} %>
+            <a class="btn btn-primary btn-md waves-effect waves-light" id="bkfl" href="<%= new_booking_path(booking_details) %>"> Book</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% end %>
   <% else %>
   <p> There are no Flights that matches Your search. Try to search again </p>
   <% end %>

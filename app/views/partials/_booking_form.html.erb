@@ -1,21 +1,21 @@
 <%= form_for @booking do |f| %>
 
+<% if @booking.new_record? %>
+<%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
+<% else %>
+<%= f.hidden_field :flight_id, { value: "#{@flight.id}" } %>
+<% end %>
+<%= f.hidden_field :no_of_passenger, { value: "#{@number_of_passengers}",class: "no_of_pass"} %>
+<%= f.hidden_field :user_id, {value: "#{session[:user_id]}"} %>
+<%= f.fields_for :passengers do | passenger | %>
+<%= render 'partials/passenger_fields', f: passenger %>
+<% end %>
+<div class="links form-inline">
+  <%= link_to_add_association 'Add Passenger',  f, :passengers, partial: "partials/passenger_fields", class: "btn btn-primary add form-control add_passenger", onclick: "passenger_calc('add')" %>
   <% if @booking.new_record? %>
-  <%= f.hidden_field :flight_id, { value: "#{params[:id]}" } %>
+  <%= submit_tag( "Book Flight", {class: "btn btn-primary form-control pull-right"}) %>
   <% else %>
-  <%= f.hidden_field :flight_id, { value: "#{@flight.id}" } %>
+  <%= submit_tag( "Save", {class: "btn btn-default pull-right"}) %>
   <% end %>
-  <%= f.hidden_field :no_of_passenger, { value: "#{@number_of_passengers}",class: "no_of_pass"} %>
-  <%= f.hidden_field :user_id, {value: "#{session[:user_id]}"} %>
-  <%= f.fields_for :passengers do | passenger | %>
-  <%= render 'partials/passenger_fields', f: passenger %>
-  <% end %>
-  <div class="links form-inline">
-    <%= link_to_add_association 'Add Passenger',  f, :passengers, partial: "partials/passenger_fields", class: "btn btn-primary add form-control add_passenger", onclick: "passenger_calc('add')" %>
-    <% if @booking.new_record? %>
-      <%= submit_tag( "Book Flight", {class: "btn btn-primary form-control pull-right"}) %>
-      <% else %>
-      <%= submit_tag( "Save", {class: "btn btn-default pull-right"}) %>
-      <% end %>
-  </div>
+</div>
 <% end %>
