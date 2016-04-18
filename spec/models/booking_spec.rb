@@ -35,23 +35,12 @@ RSpec.describe Booking, type: :model do
   context ".find_booking" do
     describe "returns nil if no booking has the supplied booking code" do
       bcode = "ABCDQG6W"
-      user_id = 1
-      it { expect(Booking.find_booking(bcode, user_id)).to eq nil }
-    end
-
-    describe "returns nil if the user didn't make a particular booking" do
-      user_id = 2
-      it "" do
-        expect(Booking.find_booking(booking.confirmation_code, user_id)).
-          to eq nil
-      end
+      it { expect(Booking.find_booking(bcode)).to eq nil }
     end
 
     describe "returns the correct booking when supplied the right details" do
-      user_id = 1
       it "" do
-        expect(Booking.find_booking(booking.confirmation_code, user_id)).
-          to eq booking
+        expect(Booking.find_booking(booking.confirmation_code)).to eq booking
       end
     end
   end

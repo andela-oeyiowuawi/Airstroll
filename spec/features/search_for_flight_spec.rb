@@ -30,8 +30,9 @@ RSpec.feature "Flights", type: :feature do
       select "Nnamdi Azikwe International Airport", from: "to_airport"
 
       find("#fsearch").click
-
-      expect(page).to have_content("BOOK", count: 1)
+      within('#flight-result') do
+        expect(page).to have_content("BOOK", count: 1)
+      end
     end
   end
 end
