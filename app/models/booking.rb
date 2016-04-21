@@ -10,8 +10,8 @@ class Booking < ActiveRecord::Base
 
   before_create :get_confirmation_code
 
-  def self.find_booking(bcode, id)
-    where(confirmation_code: bcode, user_id: id).first
+  def self.find_booking(bcode)
+    where(confirmation_code: bcode).first
   end
 
   def generate_confirmation_code

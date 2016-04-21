@@ -1,16 +1,17 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:update, :destroy, :show, :edit]
+  before_action :verify_login, only: :index
 
   def create
     if booking_params[:passengers_attributes].nil?
-      redirect_to :back, notice: "You must have at least one passenger"
+      redirect_to :back, alert: "You must have at least one passenger"
     else
       booking = Booking.new(booking_params)
       if booking.save
         mail_sender(booking)
         redirect_to booking_path(booking)
       else
-        redirect_to :back, notice: "Booking failed. Try again!!"
+        redirect_to :back, alert: "Booking failed. Try again!!"
       end
     end
   end
@@ -25,9 +26,16 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
-    mail_sender(@booking, true)
-    redirect_to user_profile_path, notice: "Booking successfully updated."
+    if @booking.update(booking_params)
+      current_user ? mail_sender(@booking, true) : mail_sender(@booking)
+      if current_user
+        redirect_to user_profile_path, notice: "Booking successfully updated."
+      else
+        redirect_to root_path, notice: "Booking successfully updated."
+      end
+    else
+      redirect_to :back, notice: "Error, Booking was not updated, try again"
+    end
   end
 
   def reservation
@@ -43,7 +51,12 @@ class BookingsController < ApplicationController
   end
 
   def find_reservation
-    @reservation = Booking.find_booking(params[:bcode], current_user.id)
+    @reservation = Booking.find_booking(params[:bcode])
+    if !current_user && @reservation.nil?
+      redirect_to root_path, alert: "Invalid Booking Code!"
+    elsif !current_user && !@reservation.nil?
+      redirect_to edit_booking_path(@reservation)
+    end
   end
 
   def show
@@ -80,6 +93,12 @@ class BookingsController < ApplicationController
         PassengerMailer.confirmation(passenger.name,
                                      passenger.email, booking).deliver_later
       end
+    end
+  end
+
+  def verify_login
+    unless current_user
+      redirect_to root_path, alert: "You have to be logged in "
     end
   end
 end

@@ -12,9 +12,17 @@
 
     <div class="navbar-collapse collapse" id="menu-nav">
       <ul class = "nav navbar-nav navbar-right">
-        <!-- <li><a href="<%= flights_path %>" class=" smothscroll">All Flights</a></li> -->
         <% if current_user.nil? %>
-        <li><a href="#" class="" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
+        <li>
+          <%= form_tag({controller: "bookings", action: "find_reservation"}, method: "post", role: "form", class: "navbar-form  form-inline") do %>
+          <div class="form-group">
+            <input type="text" name="bcode" class="form-control" id="bcode" placeholder="Booking Code">
+            <button type="submit" class="btn btn-info">Edit Booking </button>
+          </div>
+
+        <% end %>
+      </li>
+      <li><a href="#" class="" data-toggle="modal" data-target= "#loginmodal" role="dialog">Login</a></li>
         <% else %>
         <li>
           <%= link_to raw("<i class='fa fa-caret-down right'></i> #{current_user.name}"), "#", { class: "dropdown-button", :data => {:activates => "dropdown1",:toggle => "dropdown"} } %>
