@@ -5,7 +5,7 @@
     {
       pass = parseInt($(".pass").text().match(/\d+/)) + 1;
     }
-    
+
     else if (action == "subtract")
     {
       pass = parseInt($(".pass").text().match(/\d+/)) - 1;

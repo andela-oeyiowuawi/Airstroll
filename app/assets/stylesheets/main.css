@@ -288,3 +288,47 @@ body {
     }
   }
 }
+
+.cd-modal {
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  visibility: hidden;
+  transition: visibility 0s 0.6s;
+}
+.cd-modal.modal-is-visible {
+  visibility: visible;
+  transition: visibility 0s 0s;
+}
+
+.cd-cover-layer {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s 0.3s, visibility 0s 0.6s;
+}
+.cd-cover-layer.modal-is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.3s 0s, visibility 0s 0s;
+}
+.cd-modal-content {
+  color: #f2f2f2;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.3s 0s, transform 0.3s 0s;
+}
+.modal-is-visible .cd-modal-content {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s 0.3s, transform 0.3s 0.3s;
+}
