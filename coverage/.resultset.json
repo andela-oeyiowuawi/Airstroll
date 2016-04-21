@@ -342,7 +342,6 @@
       ],
       "/Users/andela/Public/workspace/airstroll/app/helpers/application_helper.rb": [
         1,
-        null,
         null
       ],
       "/Users/andela/Public/workspace/airstroll/app/helpers/sessions_helper.rb": [
@@ -613,20 +612,10 @@
         1,
         1,
         1,
-        null,
         2,
         null,
         null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         1,
-        null,
         1,
         1,
         null,
@@ -941,7 +930,6 @@
         0,
         null,
         null,
-        null,
         null
       ],
       "/Users/andela/Public/workspace/airstroll/app/mailers/passenger_mailer.rb": [
@@ -986,6 +974,6 @@
         null
       ]
     },
-    "timestamp": 1461018629
+    "timestamp": 1461278068
   }
 }
