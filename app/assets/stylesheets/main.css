@@ -105,7 +105,15 @@ p {
 .centered {
     text-align: center;
 }
-
+.show-details{
+  margin-top: -9%;
+}
+.profile-set{
+  margin-top: -3%;
+}
+.profile-set.result{
+  height: auto;
+}
 
 /* ==========================================================================
    Wrap Sections
@@ -261,11 +269,19 @@ body {
 }
 
 /* Profile Content */
-.profile-content {
+/*.profile-content {
   padding: 20px;
   background: #fff;
   min-height: 460px;
+}*/
+.profile-content {
+    padding: 20px;
+    background: #fff !important;
+    position: relative;
+    min-height: 100%;
+    height: 600px;
 }
+
 .card-content {
     .collection {
       border: none;

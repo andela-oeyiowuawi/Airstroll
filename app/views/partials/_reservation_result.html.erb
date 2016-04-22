@@ -1,9 +1,9 @@
 
-<div class="top_pad text-center">
+<div class=" text-center">
   <% if @reservation.nil? %>
   <p> Invalid confirmation code </p>
   <% else %>
-  <div class="table-responsive">
+  <!-- <div class="table-responsive">
     <table class="table table-hover text-left">
       <thead>
         <tr>
@@ -23,9 +23,41 @@
         </tr>
       </tbody>
     </table>
+  </div> -->
+<!--
+  <div class="jumbotron">
+  <h3><%= @reservation.flight.from.city %> to <%= @reservation.flight.to.city %></h3>
+  <p>Confirmatin Code: <%= @reservation.confirmation_code %></p>
+  <p>Departure Airport: <%= @reservation.flight.from.name %></p>
+  <p>Arrival Airport: <%= @reservation.flight.to.name %></p>
+  <p><%= link_to "Edit ", edit_booking_path(@reservation), class: "btn btn-default" %></p>
+</div> -->
+<div class="row row-centered">
+<div class="col-xs-6 col-centered paded">
+  <!--Image Card-->
+  <% price = @reservation.flight.price %>
+  <div class="card hoverable z-depth-4">
+    <div class="card-image flight_title">
+      <div class="title text-center">
+        <p><%= truncate(@reservation.flight.from.city, length: 10) %> to <%= truncate(@reservation.flight.to.city,length: 10) %> </p>
+
+      </div>
+    </div>
+    <div class="card-content ">
+      <ul class="collection">
+        <li class ="collection-item"><span class="glyphicon glyphicon-naira"></span> Price: <%= number_to_currency(price, locale: :ng) %> </li>
+        <li class ="collection-item"><span class="glyphicon glyphicon-plane"></span> Airline: <%= @reservation.flight.airplane.airline.name %>  </li>
+        <li class ="collection-item"><span class="glyphicon glyphicon-calendar"></span> Departure Date: <%= @reservation.flight.dept_date %></li>
+        <li class ="collection-item"><span class="glyphicon glyphicon-time"></span> Departure Time: <%= @reservation.flight.dept_time %> &nbsp; </li>
+        <li class ="collection-item text-center">
+          <%= link_to "Edit ", edit_booking_path(@reservation), class: "btn btn-primary btn-md waves-effect waves-light" %>
+
+        </li>
+      </ul>
+    </div>
   </div>
-
-
+</div>
+</div>
 
   <% end %>
 

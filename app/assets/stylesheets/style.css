@@ -32,6 +32,10 @@ svg {
 Patterns - reusable parts of our design
 
 -------------------------------- */
+
+.loginbtn{
+  color: #fff;
+}
 .cd-btn {
   display: inline-block;
   padding: 1em 2em;
@@ -51,6 +55,34 @@ Patterns - reusable parts of our design
 Main Content
 
 -------------------------------- */
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+.col-fixed {
+    /* custom width */
+    width:320px;
+}
+.col-min {
+    /* custom min width */
+    min-width:320px;
+}
+.col-max {
+    /* custom max width */
+    max-width:320px;
+}
+.paded{
+  margin-top: 5%;
+}
 .cd-main-content {
   position: relative;
   width: 100%;

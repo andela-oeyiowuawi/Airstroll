@@ -22,7 +22,7 @@
 
         <% end %>
       </li>
-      <li><a href="#0" class="cd-btn" id="modal-trigger" data-type="cd-modal-trigger">Login</a></li>
+      <li><a href="#" class="cd-btn" id="modal-trigger" data-type="cd-modal-trigger">Login</a></li>
         <% else %>
         <li>
           <%= link_to raw("<i class='fa fa-caret-down right'></i> #{current_user.name}"), "#", { class: "dropdown-button", :data => {:activates => "dropdown1",:toggle => "dropdown"} } %>
@@ -62,8 +62,8 @@
     <main class="cd-main-content">
 		<section class="center">
 			<h1 class="login">Log in with social media</h1>
-      <a href="/auth/google_oauth2" class="waves-effect waves-light btn red darken-2">Google</a>
-      <a href="/auth/facebook" class="waves-effect waves-light btn  blue darken-4">Facebook</a>
+      <a href="/auth/google_oauth2" class="waves-effect waves-light btn red darken-2 loginbtn">Google</a>
+      <a href="/auth/facebook" class="waves-effect waves-light btn  blue darken-4 loginbtn">Facebook</a>
 
 		</section>
 	 </main>
@@ -71,10 +71,7 @@
 
   </div>
 
-  <a href="#0" class="modal-close">Close</a>
+  <a href="#" class="modal-close">Close</a>
 </div>
 
 <div class="cd-cover-layer"></div>
-
-</body>
-</html>
