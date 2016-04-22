@@ -1,66 +1,47 @@
-<div class="container">
-  <div class="row details">
-    <h3 class="text-center">Your Flight Has been successfully Booked.</h3>
-    <h4 class="text-center">Here are your Flight Details</h4>
 
-    <div class="col ">
-      <div class="table-responsive list-details">
+  <div id="booking">
+    <div class="container">
+      <div class="row">
+        <h4 class="text-center">Your Flight Has been successfully Booked.</h4>
+        <h4 class="text-center">Here are your Flight Details</h4>
 
-        <table class="table table-hover center-table">
+        <div class="col-md-5 show-details">
+          <div class="panel panel-primary">
+            <div class="panel-heading"><%=@flight.airplane.airline.name%></div>
+            <div class="panel-body">
+              <p class="text-left"><strong> Departure Time:</strong> <%=  @flight.dept_time %> </p>
+              <p class="text-left"><strong> Departure Date:</strong> <%=  @flight.dept_date %> </p>
+              <p class="text-left"><strong> Departure Airport:</strong> <%=  @flight.from.name %> </p>
+              <p class="text-left"><strong> Arrival Airport:</strong> <%=  @flight.to.name %> </p>
+              <p class="text-left"><strong> Airplane name: </strong><%= @flight.airplane.name %></p>
+              <p class="text-left"><strong> Booking Code: </strong><%= @booking.confirmation_code %></p>
+              <p class="text-left"><strong> Number Of Passenger(s):</strong> <%= @booking.passengers.count %></p>
+              <p class="text-left"><strong> Price per Passenger: </strong><%=  @flight.price %> </p>
+              <p class="text-left"><strong> Total Price: </strong><%= @flight.price.to_i * @booking.passengers.count.to_i %></p>
 
-          <tbody>
-            <tr>
-              <th>Departure Airport</th>
-              <td><%= @flight.from.name%></td>
-            </tr>
-
-            <tr>
-              <th>Arrival Airport</th>
-              <td><%= @flight.to.name%></td>
-            </tr>
-
-            <tr>
-              <th>Airline Name</th>
-              <td><%=@flight.airplane.airline.name%></td>
-            </tr>
-            <tr>
-              <th>Airplane Name</th>
-              <td><%= @flight.airplane.name %></td>
-            </tr>
-            <tr>
-              <tr>
-                <th>Booking Confirmation Code</th>
-                <td><%= @booking.confirmation_code %></td>
-              </tr>
-              <tr>
-                <th>Departure Date</th>
-                <td><%=@flight.dept_date %></td>
-              </tr>
-              <tr>
-                <th>Departure Time</th>
-                <td><%=@flight.dept_time %></td>
-              </tr>
-
-              <tr>
-                <th>Number of Passenger</th>
-                <td><%= @booking.passengers.count %></td>
-              </tr>
-
-              <tr>
-                <th>Price Per Passenger</th>
-                <td><%= @flight.price %></td>
-              </tr>
-
-              <tr>
-                <th>Total cost </th>
-                <td><%= @flight.price.to_i * @booking.passengers.count.to_i %></td>
-              </tr>
-
-            </tbody>
-          </table>
+            </div>
+          </div>
         </div>
 
-      </div>
 
+        <div class="col-md-5 show-details">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              Passenger Details
+            </div>
+            <div class="panel-body">
+              <!-- <%= render 'partials/booking_form' %> -->
+              <% counter = 1 %>
+              <% for passenger in @booking.passengers  %>
+              <p> Passenger <%= counter %> </p>
+              <p> Name: <%= passenger.name %> </p>
+              <p> Email: <%= passenger.email %> </p>
+              <hr>
+                 <% counter += 1 %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
+</div>
