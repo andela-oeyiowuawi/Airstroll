@@ -3,38 +3,9 @@
   <% if @reservation.nil? %>
   <p> Invalid confirmation code </p>
   <% else %>
-  <!-- <div class="table-responsive">
-    <table class="table table-hover text-left">
-      <thead>
-        <tr>
-          <th>Confirmation Code</th>
-          <th>Departure Airport</th>
-          <th>Arrival Airport</th>
-          <th> </th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <tr>
-          <td> <%= @reservation.confirmation_code %></td>
-          <td> <%= @reservation.flight.from.name %> </td>
-          <td> <%= @reservation.flight.to.name %> </td>
-          <td> <%= link_to "Edit ", edit_booking_path(@reservation), class: "btn btn-default" %> </td>
-        </tr>
-      </tbody>
-    </table>
-  </div> -->
-<!--
-  <div class="jumbotron">
-  <h3><%= @reservation.flight.from.city %> to <%= @reservation.flight.to.city %></h3>
-  <p>Confirmatin Code: <%= @reservation.confirmation_code %></p>
-  <p>Departure Airport: <%= @reservation.flight.from.name %></p>
-  <p>Arrival Airport: <%= @reservation.flight.to.name %></p>
-  <p><%= link_to "Edit ", edit_booking_path(@reservation), class: "btn btn-default" %></p>
-</div> -->
 <div class="row row-centered">
 <div class="col-xs-6 col-centered paded">
-  <!--Image Card-->
+
   <% price = @reservation.flight.price %>
   <div class="card hoverable z-depth-4">
     <div class="card-image flight_title">
