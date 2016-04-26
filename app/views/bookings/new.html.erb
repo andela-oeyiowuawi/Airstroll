@@ -3,8 +3,7 @@
   <div class="container">
 
     <div class="row">
-      <%= render 'partials/flashmessage' %>
-      <div class="col-md-5 display-details <%= "activate" if notice %>">
+      <div class="col-md-5 display-details ">
         <div class="panel panel-primary">
           <div class="panel-heading airline"><%=@flight.airplane.airline.name%></div>
           <div class="panel-body">
@@ -20,7 +19,7 @@
       </div>
 
 
-      <div class="col-md-5 display-details <%= "activate" if notice %>">
+      <div class="col-md-5 display-details ">
         <div class="panel panel-primary">
           <div class="panel-heading">
             Passenger Details

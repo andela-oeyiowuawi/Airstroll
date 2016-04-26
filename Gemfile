@@ -19,6 +19,7 @@ gem "pry"
 gem "web-console", "~> 2.0", group: :development
 gem "will_paginate"
 gem "will_paginate-bootstrap"
+gem "ordinalize_full"
 
 group :development, :test do
   gem "pry-rails"

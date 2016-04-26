@@ -30,12 +30,11 @@
               Passenger Details
             </div>
             <div class="panel-body">
-              <!-- <%= render 'partials/booking_form' %> -->
               <% counter = 1 %>
               <% for passenger in @booking.passengers  %>
-              <p> Passenger <%= counter %> </p>
-              <p> Name: <%= passenger.name %> </p>
-              <p> Email: <%= passenger.email %> </p>
+              <p>  <strong><%= counter.ordinalize_full.capitalize %> Passenger</strong> </p>
+              <p> <strong>Name</strong>: <%= passenger.name %> </p>
+              <p> <strong>Email</strong>: <%= passenger.email %> </p>
               <hr>
                  <% counter += 1 %>
               <% end %>
