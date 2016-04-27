@@ -1,1 +1,4 @@
 $("#reserv-result").empty().append("<%= j render('partials/reservation_result') %>");
+$('html, body').animate({
+        scrollTop: $("#reserv-result").offset().top
+    }, 2000);
