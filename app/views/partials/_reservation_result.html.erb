@@ -10,7 +10,7 @@
   <div class="card hoverable z-depth-4">
     <div class="card-image flight_title">
       <div class="title text-center">
-        <p><%= truncate(@reservation.flight.from.city, length: 10) %> to <%= truncate(@reservation.flight.to.city,length: 10) %> </p>
+        <p><%= @reservation.flight.from.city %> to <%= @reservation.flight.to.city %> </p>
 
       </div>
     </div>
