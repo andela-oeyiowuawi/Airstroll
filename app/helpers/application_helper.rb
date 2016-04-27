@@ -9,3 +9,4 @@ module ApplicationHelper
   end
   flash_messages.join("\n").html_safe
 end
+end
