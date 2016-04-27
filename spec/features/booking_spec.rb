@@ -21,6 +21,7 @@ RSpec.feature "Flights", type: :feature, js: true do
     end
 
     scenario "can't book flight with no passenger", js: true do
+      visit root_path
       find_and_book_flight
       click_button "Book Flight"
       expect(page).to have_content("You must have at least one passenger")
@@ -33,9 +34,9 @@ RSpec.feature "Flights", type: :feature, js: true do
       click_on "Login"
       click_on "Facebook"
       set_valid_omniauth
-
       expect(page).to have_content("Signed")
       find_and_book_flight
+
       find(".add_passenger").click
       fill_in "pass_name", with: "Olalekan Eyiowuawi"
       fill_in "pass_email", with: "olalekan.eyiowuawi@andela.com"
